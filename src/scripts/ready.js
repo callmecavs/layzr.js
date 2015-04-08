@@ -11,10 +11,8 @@ function Layzr( options ) {
   this._retina = window.devicePixelRatio > 1 ? true : false;
   this._imgAttr = this._retina ? options.retinaAttr || 'data-layzr-retina' : options.attr || 'data-layzr';
 
-  // LIVE list of nodes
-  // when the data attribute is removed from an image, the image is removed from this list
-  // amazing - is this basically auto filtering?
-  this._images = document.querySelectorAll('[' + this._imgAttr + ']');
+  this._selector = '[' + this._imgAttr + ']';
+  this._images = document.querySelectorAll(this._selector);
 
   // call to init
   document.addEventListener('DOMContentLoaded', this.init(), false);
@@ -31,7 +29,7 @@ Layzr.prototype._updateScroll = function() {
 
 Layzr.prototype._requestTick = function() {
   if(!this._ticking) {
-    requestAnimationFrame(this.update);
+    requestAnimationFrame(this.update.bind(this));
     this._ticking = false;
   }
 }
