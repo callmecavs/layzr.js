@@ -42,6 +42,28 @@ Layzr.prototype.init = function() {
 }
 
 Layzr.prototype.update = function() {
+  // TODO: maybe optimize by using getElementsByTag (live node list) and checking for data attr,
+  // rather than querySelectorAll every scroll event?
 
+  // update list of images
+  this._images = document.querySelectorAll(this._selector);
+
+  // cache length
+  var imagesLength = this._images.length;
+
+  // loop through images
+  for(var i = 0; i < imagesLength; i++) {
+    // cache image
+    var image = this._images[i];
+
+    // check if in viewport
+    this.reveal(image);
+  }
+
+  // allow more animation frames
   this._ticking = false;
+}
+
+Layzr.prototype.reveal = function( imageNode ) {
+  console.log(imageNode);
 }
