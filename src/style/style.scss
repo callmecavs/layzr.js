@@ -14,10 +14,24 @@
 @import "ie";
 
 body {
+  padding-top: 50vh;
   // font-family: ;
   // font-weight: ;
   // font-size: ;
   line-height: 1.3;
 }
 
-// partials
+.wrapper {
+
+}
+
+.demo-images {
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.demo-image {
+  display: block;
+  margin-bottom: 100px;
+}
