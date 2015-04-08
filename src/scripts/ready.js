@@ -1,20 +1,39 @@
 'use strict';
 
-// constructor
+// CONSTRUCTOR
 
-function Outset(options) {
+function Layzr( options ) {
+  // debounce
+  this._lastScroll = 0;
+  this._ticking = false;
 
+  // call to init
   document.addEventListener('DOMContentLoaded', this.init(), false);
 }
 
-// methods
+// DEBOUNCE METHODS
+// adapted from: http://www.html5rocks.com/en/tutorials/speed/animations/
 
-Outset.prototype.init = function() {
-
+Layzr.prototype._updateScroll = function() {
+  this._lastScroll = window.scrollY;
+  this._requestTick();
 }
 
-// instance
+Layzr.prototype._requestTick = function() {
+  if(!this._ticking) {
+    requestAnimationFrame(this.update);
+    this._ticking = false;
+  }
+}
 
-var outset = new Outset({
+// Layzr METHODS
 
-});
+Layzr.prototype.init = function() {
+  // bind scroll event
+  window.addEventListener('scroll', this._updateScroll.bind(this), false);
+}
+
+Layzr.prototype.update = function() {
+
+  this._ticking = false;
+}
