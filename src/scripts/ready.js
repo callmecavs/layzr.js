@@ -7,6 +7,10 @@ function Layzr( options ) {
   this._lastScroll = 0;
   this._ticking = false;
 
+  // defaults
+  this._retina = window.devicePixelRatio > 1 ? true : false;
+  this._imgAttr = this._retina ? options.retinaAttr || 'data-layzr-retina' : options.attr || 'data-layzr';
+
   // call to init
   document.addEventListener('DOMContentLoaded', this.init(), false);
 }
@@ -15,6 +19,7 @@ function Layzr( options ) {
 // adapted from: http://www.html5rocks.com/en/tutorials/speed/animations/
 
 Layzr.prototype._updateScroll = function() {
+  // TODO: make sure we're scrolling down, not up?
   this._lastScroll = window.scrollY;
   this._requestTick();
 }
