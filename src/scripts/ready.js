@@ -44,6 +44,10 @@ Layzr.prototype._create = function() {
   // bind scroll and resize event
   window.addEventListener('scroll', this._requestScroll.bind(this), false);
   window.addEventListener('resize', this._requestScroll.bind(this), false);
+
+  // call update once
+  this.update();
+}
 }
 
 // offset helper
