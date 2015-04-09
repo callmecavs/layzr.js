@@ -10,6 +10,7 @@ function Layzr( options ) {
   // options
   this._optionsAttr = options.attr || 'data-layzr';
   this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
+  this._callback = options.callback || null;
 
   // properties
   this._retina = window.devicePixelRatio > 1 ? true : false;
@@ -117,4 +118,10 @@ Layzr.prototype.reveal = function( imageNode ) {
 
   // set image source
   imageNode.setAttribute('src', source);
+
+  // call the callback
+  if(typeof this._callback === "function") {
+    // this will be the image node in the callback
+    this._callback.call(imageNode);
+  }
 }
