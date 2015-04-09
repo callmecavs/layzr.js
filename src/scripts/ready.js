@@ -12,7 +12,7 @@ function Layzr( options ) {
   this._imgAttr = this._retina ? options.retinaAttr || 'data-layzr-retina' : options.attr || 'data-layzr';
 
   this._selector = '[' + this._imgAttr + ']';
-  this._images = document.querySelectorAll(this._selector);
+  this._images = document.getElementsByTagName('img');
 
   // call to init
   document.addEventListener('DOMContentLoaded', this._create(), false);
@@ -42,14 +42,10 @@ Layzr.prototype._create = function() {
   window.addEventListener('resize', this._requestScroll.bind(this), false);
 }
 
+
+
 Layzr.prototype.update = function() {
-  // TODO: maybe optimize by using getElementsByTag (live node list) and checking for data attr,
-  // rather than querySelectorAll every scroll event?
-
-  // update list of images
-  this._images = document.querySelectorAll(this._selector);
-
-  // cache length
+  // cache image NodeList length
   var imagesLength = this._images.length;
 
   // loop through images
@@ -66,5 +62,5 @@ Layzr.prototype.update = function() {
 }
 
 Layzr.prototype.reveal = function( imageNode ) {
-  console.log(imageNode);
+
 }
