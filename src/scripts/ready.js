@@ -57,6 +57,19 @@ Layzr.prototype._getOffset = function( element ) {
   return offsetTop;
 }
 
+Layzr.prototype._inViewport = function( imageNode ) {
+  // get viewport
+  var viewportTop = this._lastScroll;
+  var viewportBottom = viewportTop + window.innerHeight;
+
+  // get image offset top and left
+  var elementTop = this._getOffset(imageNode);
+  var elementBottom = elementTop + imageNode.offsetHeight;
+
+  // return based on position
+  return elementBottom >= viewportTop && elementBottom <= viewportBottom;
+}
+
 Layzr.prototype.update = function() {
   // cache image NodeList length
   var imagesLength = this._images.length;
@@ -64,10 +77,17 @@ Layzr.prototype.update = function() {
   // loop through images
   for(var i = 0; i < imagesLength; i++) {
     // cache image
+    // TODO: is it smart to declare this variable repeatedly here?
     var image = this._images[i];
 
-    // check if in viewport
-    this.reveal(image);
+    // check if it has our attribute
+    if(image.hasAttribute(this._imgAttr)) {
+      // check if in viewport
+      if(this._inViewport(image)) {
+        // reveal image
+        this.reveal(image);
+      }
+    }
   }
 
   // allow more animation frames
