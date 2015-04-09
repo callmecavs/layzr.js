@@ -18,7 +18,7 @@ function Layzr( options ) {
   // images nodelist
   this._images = document.getElementsByTagName('img');
 
-  // call to init
+  // call to create
   document.addEventListener('DOMContentLoaded', this._create(), false);
 }
 
@@ -26,7 +26,6 @@ function Layzr( options ) {
 // adapted from: http://www.html5rocks.com/en/tutorials/speed/animations/
 
 Layzr.prototype._requestScroll = function() {
-  // TODO: make sure we're scrolling down, not up?
   this._lastScroll = window.scrollY;
   this._requestTick();
 }
@@ -50,7 +49,7 @@ Layzr.prototype._create = function() {
 }
 
 Layzr.prototype._destroy = function() {
-  // should we remove attributes, and set all sources?
+  // possibly remove attributes, and set all sources?
 
   // unbind scroll and resize event
   window.removeEventListener('scroll', this._requestScroll.bind(this), false);
@@ -73,15 +72,15 @@ Layzr.prototype._getOffset = function( element ) {
 }
 
 Layzr.prototype._inViewport = function( imageNode ) {
-  // get viewport
+  // get viewport top and bottom offset
   var viewportTop = this._lastScroll;
   var viewportBottom = viewportTop + window.innerHeight;
 
-  // get image offset top and left
+  // get image top and bottom offset
   var elementTop = this._getOffset(imageNode);
   var elementBottom = elementTop + imageNode.offsetHeight;
 
-  // return based on position
+  // return if element in viewport
   return elementBottom >= viewportTop && elementBottom <= viewportBottom;
 }
 
@@ -92,12 +91,11 @@ Layzr.prototype.update = function() {
   // loop through images
   for(var i = 0; i < imagesLength; i++) {
     // cache image
-    // TODO: is it smart to declare this variable repeatedly here?
     var image = this._images[i];
 
-    // check if it has our attribute
+    // check if image has attribute
     if(image.hasAttribute(this._imgAttr)) {
-      // check if in viewport
+      // check if image in viewport
       if(this._inViewport(image)) {
         // reveal image
         this.reveal(image);
@@ -105,18 +103,18 @@ Layzr.prototype.update = function() {
     }
   }
 
-  // allow more animation frames
+  // allow for more animation frames
   this._ticking = false;
 }
 
 Layzr.prototype.reveal = function( imageNode ) {
-  // get appropriate attribute
+  // get image source
   var source = imageNode.getAttribute(this._imgAttr);
 
-  // TODO: remove data attributes?
+  // remove image data attributes
   imageNode.removeAttribute(this._optionsAttr);
   imageNode.removeAttribute(this._optionsAttrRetina);
 
-  // set the source
+  // set image source
   imageNode.setAttribute('src', source);
 }
