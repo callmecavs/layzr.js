@@ -7,11 +7,15 @@ function Layzr( options ) {
   this._lastScroll = 0;
   this._ticking = false;
 
+  // options
+  this._optionsAttr = options.attr || 'data-layzr';
+  this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
+
   // properties
   this._retina = window.devicePixelRatio > 1 ? true : false;
-  this._imgAttr = this._retina ? options.retinaAttr || 'data-layzr-retina' : options.attr || 'data-layzr';
+  this._imgAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
 
-  this._selector = '[' + this._imgAttr + ']';
+  // images nodelist
   this._images = document.getElementsByTagName('img');
 
   // call to init
@@ -71,7 +75,7 @@ Layzr.prototype._inViewport = function( imageNode ) {
 }
 
 Layzr.prototype.update = function() {
-  // cache image NodeList length
+  // cache image nodelist length
   var imagesLength = this._images.length;
 
   // loop through images
@@ -95,5 +99,13 @@ Layzr.prototype.update = function() {
 }
 
 Layzr.prototype.reveal = function( imageNode ) {
+  // get appropriate attribute
+  var source = imageNode.getAttribute(this._imgAttr);
 
+  // TODO: remove data attributes?
+  imageNode.removeAttribute(this._optionsAttr);
+  imageNode.removeAttribute(this._optionsAttrRetina);
+
+  // set the source
+  imageNode.setAttribute('src', source);
 }
