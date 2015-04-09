@@ -15,7 +15,7 @@ function Layzr( options ) {
   this._images = document.querySelectorAll(this._selector);
 
   // call to init
-  document.addEventListener('DOMContentLoaded', this.init(), false);
+  document.addEventListener('DOMContentLoaded', this._create(), false);
 }
 
 // DEBOUNCE METHODS
@@ -36,9 +36,10 @@ Layzr.prototype._requestTick = function() {
 
 // Layzr METHODS
 
-Layzr.prototype.init = function() {
-  // bind scroll event
-  window.addEventListener('scroll', this._updateScroll.bind(this), false);
+Layzr.prototype._create = function() {
+  // bind scroll and resize event
+  window.addEventListener('scroll', this._requestScroll.bind(this), false);
+  window.addEventListener('resize', this._requestScroll.bind(this), false);
 }
 
 Layzr.prototype.update = function() {
