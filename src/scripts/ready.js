@@ -41,13 +41,20 @@ Layzr.prototype._requestTick = function() {
 // Layzr METHODS
 
 Layzr.prototype._create = function() {
+  // call update once
+  this.update();
+
   // bind scroll and resize event
   window.addEventListener('scroll', this._requestScroll.bind(this), false);
   window.addEventListener('resize', this._requestScroll.bind(this), false);
-
-  // call update once
-  this.update();
 }
+
+Layzr.prototype._destroy = function() {
+  // should we remove attributes, and set all sources?
+
+  // unbind scroll and resize event
+  window.removeEventListener('scroll', this._requestScroll.bind(this), false);
+  window.removeEventListener('resize', this._requestScroll.bind(this), false);
 }
 
 // offset helper
