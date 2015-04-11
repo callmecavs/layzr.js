@@ -2,6 +2,8 @@
 
 // color vars
 
+$green: #CCDB38;
+
 // font vars
 
 // mixins and reset
@@ -14,6 +16,9 @@
 @import "ie";
 
 body {
+  padding-top: 20vh;
+  background-color: #F9F9F9;
+  border-top: 3px solid $green;
   // font-family: ;
   // font-weight: ;
   // font-size: ;
@@ -21,3 +26,6 @@ body {
 }
 
 // partials
+
+@import "layout";
+@import "header";

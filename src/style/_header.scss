@@ -1,0 +1,37 @@
+.header {
+
+}
+
+.header-logo {
+  width: 139px;
+  height: 61px;
+  margin-bottom: 25px;
+  background: url("images/logo.svg") center center no-repeat;
+  @include hide-text;
+}
+
+.header-social {
+
+}
+
+.header-social-download {
+  display: none;
+}
+
+.header-social-share {
+  float: left;
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.header-social-github {
+  background-image: url("images/icons/social-github.svg");
+}
+
+.header-social-twitter {
+  background-image: url("images/icons/social-twitter.svg");
+}
