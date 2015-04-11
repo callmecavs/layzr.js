@@ -1,4 +1,8 @@
 .doc-block {
+  @include mq-min($desktop) {
+    position: relative;
+  }
+
   * {
     margin-bottom: 25px;
   }
@@ -32,4 +36,10 @@
   text-transform: uppercase;
   letter-spacing: 5px;
   color: #36464E;
+
+  @include mq-min($desktop) {
+    position: absolute;
+    top: -4px;                  // adjust for border/baseline
+    right: calc(100% + 90px);
+  }
 }

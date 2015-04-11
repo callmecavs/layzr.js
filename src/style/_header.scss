@@ -1,5 +1,9 @@
 .header {
-
+  @include mq-min($desktop) {
+    position: absolute;
+    top: 0;
+    right: 590px;
+  }
 }
 
 .header-logo {
@@ -13,23 +17,43 @@
 .header-social {
   @include clearfix;
   margin-bottom: 40px;
+
+  @include mq-min($desktop) {
+    text-align: right;
+  }
 }
 
-.header-social-download {
+.header-download {
   display: none;
+
+  @include mq-min($desktop) {
+    float: right;
+    display: block;
+    width: 109px;     // w/o border 105
+    height: 34px;     // w/o border 30
+    margin-bottom: 25px;
+    padding-top: 4px;
+    border: 2px solid #AFBDC4;
+    border-radius: 3px;
+    font-family: $proxima;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+    @include letter-spacing(1px);
+    color: #AFBDC4;
+  }
 }
 
 .header-social-share {
-  float: left;
-  display: block;
+  display: inline-block;
   width: 35px;
   height: 35px;
-  margin-right: 10px;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 .header-social-github {
+  margin-right: 10px;
   background-image: url("images/icons/social-github.svg");
 }
 

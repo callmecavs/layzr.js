@@ -1,5 +1,7 @@
 // breakpoints
 
+$desktop: 900px;
+
 // color vars
 
 $green: #CCDB38;
@@ -28,6 +30,10 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: $teal;
+
+  @include mq-min($desktop) {
+    padding: 22.5vh 0;
+  }
 }
 
 // partials

@@ -1,8 +1,13 @@
 .wrapper {
+  position: relative;
   width: 85%;
-  max-width: 500px;
+  max-width: 750px;
   margin-right: auto;
   margin-left: auto;
+
+  @include mq-min($desktop) {
+    padding-left: 250px;
+  }
 }
 
 .section-rule {
