@@ -95,7 +95,7 @@ Layzr.prototype.update = function() {
     var image = this._images[i];
 
     // check if image has attribute
-    if(image.hasAttribute(this._imgAttr)) {
+    if(image.hasAttribute(this._imgAttr) || image.hasAttribute(this._optionsAttr)) {
       // check if image in viewport
       if(this._inViewport(image)) {
         // reveal image
@@ -110,18 +110,20 @@ Layzr.prototype.update = function() {
 
 Layzr.prototype.reveal = function( imageNode ) {
   // get image source
-  var source = imageNode.getAttribute(this._imgAttr);
+  var source = imageNode.getAttribute(this._imgAttr) || imageNode.getAttribute(this._optionsAttr);
 
   // remove image data attributes
   imageNode.removeAttribute(this._optionsAttr);
   imageNode.removeAttribute(this._optionsAttrRetina);
 
-  // set image source
-  imageNode.setAttribute('src', source);
+  // set image source, if it has one
+  if(source) {
+    imageNode.setAttribute('src', source);
 
-  // call the callback
-  if(typeof this._callback === "function") {
-    // this will be the image node in the callback
-    this._callback.call(imageNode);
+    // call the callback
+    if(typeof this._callback === "function") {
+      // this will be the image node in the callback
+      this._callback.call(imageNode);
+    }
   }
 }
