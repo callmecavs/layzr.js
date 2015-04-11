@@ -10,17 +10,15 @@
 }
 
 .intro-subtext {
-  margin-bottom: 30px;
   font-size: 2.1rem;
 
-  &:last-of-type {
-    margin-bottom: 40px;
+  &:first-of-type {
+    margin-bottom: 25px;
   }
 }
 
 .feature-row {
   display: flex;
-  margin-bottom: 40px;
 }
 
 .feature-column {
