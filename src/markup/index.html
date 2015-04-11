@@ -50,9 +50,9 @@
 
         <p class="intro-subtext">Lazy loading boosts page speed by deferring the loading of images until they&apos;re in (or near) the viewport. This library makes it completely painless - maximizing speed by keeping options to a minimum.</p>
         <p class="intro-subtext">The scroll event has been debounced to minimize the weight on the browser, and callbacks are executed within rAF to ensure optimal revealing.</p>
-
-        <hr class="section-rule">
       </section><!-- END intro -->
+
+      <hr class="section-rule">
 
       <section class="doc-block">
         <h2 class="doc-block-heading">Usage</h2>
@@ -74,9 +74,39 @@
           &#13;&#10;  callback: null
           &#13;&#10;});
         </code>
-
-        <hr class="section-rule">
       </section><!-- END doc-block -->
+
+      <hr class="section-rule">
+
+      <section class="doc-block">
+        <h2 class="doc-block-heading">Options</h2>
+
+        <p class="lead"><strong>attr / retinaAttr</strong></p>
+
+        <p>Customize the data attributes Layzr gets image sources from when creating your instance of Layzr (omit the "data-"):</p>
+
+        <code>
+          var layzr = new Layzr({
+          &#13;&#10;&nbsp;&nbsp;attr: 'custom-image-attribute',
+          &#13;&#10;&nbsp;&nbsp;retinaAttr: 'custom-retina-attribute'
+          &#13;&#10;});
+        </code>
+
+        <p class="lead"><strong>callback</strong></p>
+
+        <p>Layzr can optionally fire a callback each time an image is loaded. This makes it easy to fire CSS3 or JS based animations once an image has loaded.</p>
+
+        <code>
+          var layzr = new Layzr({
+          &#13;&#10;&nbsp;&nbsp;callback: function() {
+          &#13;&#10;  &nbsp;&nbsp;&nbsp;&nbsp;// "this" refers to the image node
+          &#13;&#10;  &nbsp;&nbsp;&nbsp;&nbsp;this.classList.add('animate');
+          &#13;&#10;&nbsp;&nbsp;}
+          &#13;&#10;});
+        </code>
+      </section><!-- END doc-block -->
+
+      <hr class="section-rule">
 
     </div><!-- END wrapper -->
 
