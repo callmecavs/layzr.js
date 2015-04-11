@@ -34,7 +34,7 @@
   font-weight: bold;
   font-size: 2.0rem;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  @include letter-spacing(5px);
   color: #36464E;
 
   @include mq-min($desktop) {
