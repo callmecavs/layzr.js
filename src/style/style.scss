@@ -7,8 +7,8 @@ $teal: #536D79;
 
 // font vars
 
-$freight: "FreightText Pro";
-$proxima: "Proxima Nova";
+$freight: "freight-text-pro";
+$proxima: "proxima-nova";
 
 // mixins and reset
 
@@ -24,7 +24,7 @@ body {
   background-color: #F9F9F9;
   border-top: 3px solid $green;
   font-family: $freight, serif;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.6;
   color: $teal;
