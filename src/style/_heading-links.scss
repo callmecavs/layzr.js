@@ -1,0 +1,25 @@
+$hover-heading-attr: "[data-heading]";
+$hover-link-attr:    "[data-heading-link]";
+
+// hover link styles
+
+#{$hover-link-attr} {
+  display: none;
+
+  @include mq-min($desktop) {
+    padding: 0 10px;
+    text-decoration: none;
+    color: inherit;
+    &::before {
+      content: "\221E";
+    }
+  }
+}
+
+// show link when heading is hovered
+
+#{$hover-heading-attr}:hover #{$hover-link-attr} {
+  @include mq-min($desktop) {
+    display: inline;
+  }
+}
