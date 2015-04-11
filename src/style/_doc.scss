@@ -1,0 +1,24 @@
+.doc-block {
+
+  * {
+    margin-bottom: 25px;
+  }
+
+  code {
+    display: block;
+    padding: 10px 15px;
+    background-color: #F2F2F2;
+    font-family: monospace;
+    font-size: 1.2rem;
+  }
+}
+
+.doc-block-heading {
+  margin-bottom: 20px;
+  font-family: $proxima;
+  font-weight: bold;
+  font-size: 2.0rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #36464E;
+}

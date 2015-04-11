@@ -6,6 +6,7 @@
   margin-bottom: 45px;
   font-weight: 300;
   font-size: 3.2rem;
+  line-height: 1.25;
 }
 
 .intro-subtext {
@@ -38,4 +39,5 @@
   font-size: 1.4rem;
   text-transform: uppercase;
   @include letter-spacing(3px);
+  color: #36464E;
 }

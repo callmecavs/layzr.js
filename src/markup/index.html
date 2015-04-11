@@ -46,10 +46,23 @@
         <hr class="section-rule">
 
         <p class="intro-subtext">Lazy loading boosts page speed by deferring the loading of images until they&apos;re in (or near) the viewport. This library makes it completely painless - maximizing speed by keeping options to a minimum.</p>
-        <p class="intro-subtext">The scroll event has been debounced to minimize the weight on the browser, and callbacks are executed within requestAnimationFrame to ensure optimal revealing.</p>
+        <p class="intro-subtext">The scroll event has been debounced to minimize the weight on the browser, and callbacks are executed within rAF to ensure optimal revealing.</p>
 
         <hr class="section-rule">
       </section><!-- END intro -->
+
+      <section class="doc-block">
+        <h2 class="doc-block-heading">Usage</h2>
+
+        <p>Include the library in your project:</p>
+
+        <code>&lt;script src="layzr.min.js"&gt;&lt;/script&gt;</code>
+
+        <p>For each image, (optionally) put a placeholder in the src attribute. Include the real image in the data-layzr attribute, and (optionally) the retina version in the data-layzr-retina attribute. These data attributes are configureable - see the options section below.</p>
+
+        <hr class="section-rule">
+      </section><!-- END doc-block -->
+
     </div><!-- END wrapper -->
 
     <script src="scripts.js"></script>
