@@ -57,11 +57,23 @@
       <section class="doc-block">
         <h2 class="doc-block-heading">Usage</h2>
 
-        <p>Include the library in your project:</p>
+        <p>Load the script:</p>
 
         <code>&lt;script src="layzr.min.js"&gt;&lt;/script&gt;</code>
 
-        <p>For each image, (optionally) put a placeholder in the src attribute. Include the real image in the data-layzr attribute, and (optionally) the retina version in the data-layzr-retina attribute. These data attributes are configureable - see the options section below.</p>
+        <p>For each image, put a placeholder in the src attribute, put the real image in the data-layzr attribute, and the retina image in the data-layzr-retina attribute.</p>
+
+        <code>&lt;img src=&quot;optional/placeholder&quot; data-layzr=&quot;normal/image&quot; data-layzr-retina=&quot;optional/retina/image&quot;&gt;</code>
+
+        <p>Create a new instance with your desired options. Defaults shown below:</p>
+
+        <code>
+          var layzr = new Layzr({
+          &#13;&#10;  attr: 'data-layzr',
+          &#13;&#10;  retinaAttr: 'data-layzr-retina',
+          &#13;&#10;  callback: null
+          &#13;&#10;});
+        </code>
 
         <hr class="section-rule">
       </section><!-- END doc-block -->
