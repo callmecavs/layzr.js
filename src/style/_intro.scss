@@ -1,0 +1,41 @@
+.intro {
+
+}
+
+.intro-tagline {
+  margin-bottom: 45px;
+  font-weight: 300;
+  font-size: 3.2rem;
+}
+
+.intro-subtext {
+  margin-bottom: 30px;
+  font-size: 2.4rem;
+
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+}
+
+.feature-row {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.feature-column {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.feature-icon {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.feature-name {
+  font-family: $proxima;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  @include letter-spacing(3px);
+}

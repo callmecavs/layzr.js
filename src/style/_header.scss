@@ -11,7 +11,8 @@
 }
 
 .header-social {
-
+  @include clearfix;
+  margin-bottom: 40px;
 }
 
 .header-social-download {

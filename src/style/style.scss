@@ -3,8 +3,12 @@
 // color vars
 
 $green: #CCDB38;
+$teal: #536D79;
 
 // font vars
+
+$freight: "FreightText Pro";
+$proxima: "Proxima Nova";
 
 // mixins and reset
 
@@ -16,16 +20,18 @@ $green: #CCDB38;
 @import "ie";
 
 body {
-  padding-top: 20vh;
+  padding-top: 15vh;
   background-color: #F9F9F9;
   border-top: 3px solid $green;
-  // font-family: ;
-  // font-weight: ;
-  // font-size: ;
+  font-family: $freight, serif;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 1.3;
+  color: $teal;
 }
 
 // partials
 
 @import "layout";
 @import "header";
+@import "intro";
