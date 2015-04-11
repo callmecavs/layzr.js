@@ -1,5 +1,4 @@
 .doc-block {
-
   * {
     margin-bottom: 25px;
   }
@@ -11,11 +10,15 @@
 
   code {
     display: block;
-    padding: 10px 15px;
+    padding: 15px;
     background-color: #F2F2F2;
     font-family: monospace;
     font-size: 1.2rem;
     white-space: pre;
+  }
+
+  a {
+    color: $green;
   }
 }
 
