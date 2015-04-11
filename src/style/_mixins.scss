@@ -1,0 +1,55 @@
+// MIXINS
+
+@mixin clearfix {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin hide-text {
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+@mixin letter-spacing($length) {
+  letter-spacing: $length;
+  text-indent: $length;
+}
+
+@mixin vertical-center {
+  transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+}
+
+// HELPERS
+
+@mixin font-face($font-name, $file-name, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: $font-name;
+    src: url("fonts/#{$file-name}.eot");
+    src: url("fonts/#{$file-name}.eot?#iefix") format("embedded-opentype"),
+         url("fonts/#{$file-name}.woff2") format("woff2"),
+         url("fonts/#{$file-name}.woff") format("woff"),
+         url("fonts/#{$file-name}.ttf") format("truetype"),
+         url("fonts/#{$file-name}.svg#lineto-#{$file-name}") format("svg");
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@mixin mq-min($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin translate($axis, $value) {
+  @if $axis == "x" { transform: translate3d($value, 0, 0); }
+  @if $axis == "y" { transform: translate3d(0, $value, 0); }
+  @if $axis == "z" { transform: translate3d(0, 0, $value); }
+}
