@@ -10,7 +10,7 @@ function Layzr( options ) {
   // options
   this._optionsAttr = options.attr || 'data-layzr';
   this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
-  this._callback = options.callback || null;
+  this._optionsCallback = options.callback || null;
 
   // properties
   this._retina = window.devicePixelRatio > 1 ? true : false;
@@ -58,7 +58,7 @@ Layzr.prototype._destroy = function() {
 }
 
 // offset helper
-// borrow from: http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
+// borrowed from: http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
 
 Layzr.prototype._getOffset = function( element ) {
   var offsetTop  = 0;
@@ -121,9 +121,9 @@ Layzr.prototype.reveal = function( imageNode ) {
     imageNode.setAttribute('src', source);
 
     // call the callback
-    if(typeof this._callback === 'function') {
+    if(typeof this._optionsCallback === 'function') {
       // this will be the image node in the callback
-      this._callback.call(imageNode);
+      this._optionsCallback.call(imageNode);
     }
   }
 }
