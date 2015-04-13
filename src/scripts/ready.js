@@ -41,8 +41,8 @@ Layzr.prototype._requestTick = function() {
 // Layzr METHODS
 
 Layzr.prototype._create = function() {
-  // call update once
-  this.update();
+  // fire scroll event once
+  this._requestScroll();
 
   // bind scroll and resize event
   window.addEventListener('scroll', this._requestScroll.bind(this), false);
