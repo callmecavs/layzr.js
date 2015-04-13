@@ -27,7 +27,7 @@ function Layzr( options ) {
 // adapted from: http://www.html5rocks.com/en/tutorials/speed/animations/
 
 Layzr.prototype._requestScroll = function() {
-  this._lastScroll = window.scrollY;
+  this._lastScroll = window.scrollY || window.pageYOffset;
   this._requestTick();
 }
 
