@@ -19,7 +19,7 @@ gulp.task('html', function() {
   return gulp.src('src/markup/*.html')
     .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(plugins.htmlmin({ collapseWhitespace: true, removeComments: true }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('./'))
     .pipe(plugins.connect.reload());
 });
 
@@ -29,7 +29,7 @@ gulp.task('sass', function() {
     .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(plugins.sass({ outputStyle: 'compressed' }))
     .pipe(plugins.autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Explorer >= 9'], cascade: false }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('./'))
     .pipe(plugins.connect.reload());
 });
 
@@ -39,7 +39,7 @@ gulp.task('scripts', function() {
     .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(plugins.concat('scripts.js'))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('./'))
     .pipe(plugins.connect.reload());
 });
 
@@ -48,14 +48,14 @@ gulp.task('images', function() {
   return gulp.src('src/images/**/*')
     .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(plugins.imagemin({ progressive: true }))
-    .pipe(gulp.dest('dist/images'))
+    .pipe(gulp.dest('./images'))
     .pipe(plugins.connect.reload());
 });
 
 // start local server on port 3000
 gulp.task('server', function() {
   return plugins.connect.server({
-    root: 'dist',
+    root: './',
     port: 3000,
     livereload: true
   });
