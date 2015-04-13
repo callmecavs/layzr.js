@@ -5,14 +5,9 @@
   "author": "",
   "devDependencies": {
     "gulp": "^3.8.10",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-concat": "^2.4.2",
-    "gulp-connect": "^2.2.0",
-    "gulp-htmlmin": "^0.2.0",
-    "gulp-imagemin": "^2.0.0",
     "gulp-load-plugins": "^0.8.0",
     "gulp-plumber": "^1.0.0",
-    "gulp-sass": "^1.2.4",
+    "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.0.2",
     "node-notifier": "^4.1.2"
   }
