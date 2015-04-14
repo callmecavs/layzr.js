@@ -132,7 +132,7 @@
 
   // exports to AMD and Global scope
   if(typeof define === 'function' && define.amd) { // AMD
-    define(function() { return Layzr; });
+    define('Layzr', function() { return Layzr; });
   } else { // Browser
     exports.Layzr = Layzr;
   }
