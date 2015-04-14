@@ -6,6 +6,8 @@ A small, fast, modern, and dependency-free library for lazy loading images.
 
 ## Docs
 
+See the project page for documentation. Section links below:
+
 * [Usage](http://callmecavs.github.io/layzr.js/#usage)
 * [Options](http://callmecavs.github.io/layzr.js/#options)
 * [Browsers](http://callmecavs.github.io/layzr.js/#browsers)
