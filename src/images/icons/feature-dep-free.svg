@@ -2,16 +2,18 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="75.9px" height="50.7px" viewBox="1.1 7.6 75.9 50.7" enable-background="new 1.1 7.6 75.9 50.7" xml:space="preserve">
+	 width="51.968px" height="51.968px" viewBox="0 0 51.968 51.968" enable-background="new 0 0 51.968 51.968" xml:space="preserve">
 <g>
 	<g>
-		<circle fill="none" stroke="#B0BEC5" stroke-width="1.9455" stroke-miterlimit="10" cx="67.2" cy="32.1" r="8.8"/>
-		<line fill="none" stroke="#B0BEC5" stroke-width="1.9455" stroke-miterlimit="10" x1="58.5" y1="32.1" x2="46.3" y2="32.1"/>
+		<g>
+			<circle fill="none" stroke="#B0BEC5" stroke-width="2" stroke-miterlimit="10" cx="8.141" cy="26.267" r="5.527"/>
+			<line fill="none" stroke="#B0BEC5" stroke-width="2" stroke-miterlimit="10" x1="13.669" y1="26.267" x2="21.831" y2="26.267"/>
+		</g>
+		<g>
+			<circle fill="none" stroke="#B0BEC5" stroke-width="2" stroke-miterlimit="10" cx="43.828" cy="26.271" r="5.527"/>
+			<line fill="none" stroke="#B0BEC5" stroke-width="2" stroke-miterlimit="10" x1="38.298" y1="26.271" x2="30.136" y2="26.271"/>
+		</g>
+		<line fill="none" stroke="#B0BEC5" stroke-width="2" stroke-miterlimit="10" x1="34.72" y1="4.449" x2="17.543" y2="47.519"/>
 	</g>
-	<g>
-		<circle fill="none" stroke="#B0BEC5" stroke-width="1.9455" stroke-miterlimit="10" cx="10.8" cy="32.1" r="8.8"/>
-		<line fill="none" stroke="#B0BEC5" stroke-width="1.9455" stroke-miterlimit="10" x1="19.5" y1="32.1" x2="31.7" y2="32.1"/>
-	</g>
-	<line fill="none" stroke="#B0BEC5" stroke-width="1.9455" stroke-miterlimit="10" x1="28.9" y1="58" x2="48.2" y2="8"/>
 </g>
 </svg>
