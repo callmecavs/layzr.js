@@ -134,7 +134,7 @@
   if(typeof define === 'function' && define.amd) { // AMD
     define('Layzr', function() { return Layzr; });
   } else { // Browser
-    exports.Layzr = Layzr;
+    root.Layzr = Layzr;
   }
 
 } (this));
