@@ -1,11 +1,12 @@
 .wrapper {
   position: relative;
   width: 85%;
-  max-width: 750px;
+  max-width: 500px;
   margin-right: auto;
   margin-left: auto;
 
   @include mq-min($desktop) {
+    max-width: 750px;
     padding-left: 250px;
   }
 }
