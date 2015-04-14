@@ -26,10 +26,19 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist'));
 });
 
+// start local server on port 3000
+gulp.task('server', function() {
+  return plugins.connect.server({
+    root: './',
+    port: 3000,
+    livereload: true
+  });
+});
+
 // watch sass and js files
 gulp.task('watch', function() {
   gulp.watch('dist/layzr.js', ['scripts']);
 });
 
 // build and default task
-gulp.task('default', ['scripts', 'watch']);
+gulp.task('default', ['server', 'scripts', 'watch']);
