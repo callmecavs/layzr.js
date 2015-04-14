@@ -49,7 +49,7 @@
         <hr class="section-rule">
 
         <p class="intro-subtext">Lazy loading boosts page speed by deferring the loading of images until they&apos;re in (or near) the viewport. This library makes it completely painless - maximizing speed by keeping options to a minimum.</p>
-        <p class="intro-subtext">The scroll event has been debounced to minimize the weight on the browser, and callbacks are executed within rAF to ensure optimal revealing.</p>
+        <p class="intro-subtext">The scroll event has been debounced to minimize the weight on the browser, and images are revealed within rAF to ensure optimal rendering.</p>
       </section><!-- END intro -->
 
       <hr class="section-rule">
@@ -96,14 +96,16 @@
 
         <p class="lead">callback</p>
 
-        <p>Layzr can call a callback function each time an image is loaded, making it easy to fire CSS3 or JS based transitions or animations.</p>
+        <p>Layzr can invoke a callback function each time an image is loaded.</p>
+
+        <p>Note that Layzr <strong>does not</strong> check if the image is fully loaded before calling the function. Detecting image load is inconsistent at best in modern browsers.</p>
 
         <code>
           // in the callback function, "this" refers to the image node
           &#13;&#10;
           &#13;&#10;var layzr = new Layzr({
           &#13;&#10;&nbsp;&nbsp;callback: function() {
-          &#13;&#10;  &nbsp;&nbsp;&nbsp;&nbsp;this.classList.add('animate');
+          &#13;&#10;  &nbsp;&nbsp;&nbsp;&nbsp;this.classList.add('class-name');
           &#13;&#10;&nbsp;&nbsp;}
           &#13;&#10;});
         </code>
