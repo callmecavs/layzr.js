@@ -71,6 +71,7 @@
           var layzr = new Layzr({
           &#13;&#10;  attr: 'data-layzr',
           &#13;&#10;  retinaAttr: 'data-layzr-retina',
+          &#13;&#10;  threshold: 0,
           &#13;&#10;  callback: null
           &#13;&#10;});
         </code>
@@ -94,11 +95,25 @@
           &#13;&#10;});
         </code>
 
+        <p class="lead">threshold</p>
+
+        <p>Adjust when images load using the threshold option. Positive values make the images load sooner.</p>
+
+        <p>Note that the threshold is a percentage of the viewport height - think of it as similar to the CSS vh unit.</p>
+
+        <code>
+          // load images when they&apos;re half the viewport height away from the bottom of the viewport
+          &#13;&#10;
+          &#13;&#10;var layzr = new Layzr({
+          &#13;&#10;&nbsp;&nbsp;threshold: 50
+          &#13;&#10;});
+        </code>
+
         <p class="lead">callback</p>
 
         <p>Layzr can invoke a callback function each time an image is loaded.</p>
 
-        <p>Note that Layzr <strong>does not</strong> check if the image is fully loaded before calling the function. Detecting image load is inconsistent at best in modern browsers.</p>
+        <p>Note that Layzr does not check if the image is fully loaded before calling the function. Detecting image load is inconsistent at best in modern browsers.</p>
 
         <code>
           // in the callback function, "this" refers to the image node
