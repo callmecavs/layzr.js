@@ -10,6 +10,7 @@ function Layzr( options ) {
   // options
   this._optionsAttr = options.attr || 'data-layzr';
   this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
+  this._optionsThreshold = options.threshold || 0;
   this._optionsCallback = options.callback || null;
 
   // properties
@@ -81,8 +82,11 @@ Layzr.prototype._inViewport = function( imageNode ) {
   var elementTop = this._getOffset(imageNode);
   var elementBottom = elementTop + imageNode.offsetHeight;
 
+  // calculate threshold, convert percentage to pixel value
+  var threshold = (this._optionsThreshold / 100) * window.innerHeight;
+
   // return if element in viewport
-  return elementBottom >= viewportTop && elementBottom <= viewportBottom;
+  return elementBottom >= viewportTop - threshold && elementBottom <= viewportBottom + threshold;
 }
 
 Layzr.prototype.update = function() {
