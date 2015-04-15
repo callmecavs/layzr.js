@@ -12,4 +12,8 @@ See the project page for documentation. Section links below:
 * [Options](http://callmecavs.github.io/layzr.js/#options)
 * [Browsers](http://callmecavs.github.io/layzr.js/#browsers)
 
+## Roadmap
+
+- [ ] Add UMD wrapper - for AMD, CommonJS, etc
+
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
