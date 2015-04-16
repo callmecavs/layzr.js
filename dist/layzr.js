@@ -44,7 +44,7 @@
   Layzr.prototype._requestTick = function() {
     if(!this._ticking) {
       requestAnimationFrame(this.update.bind(this));
-      this._ticking = false;
+      this._ticking = true;
     }
   }
 
