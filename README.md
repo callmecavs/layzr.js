@@ -15,6 +15,7 @@ See the project page for documentation. Section links below:
 ## Roadmap
 
 - [x] Add UMD wrapper - for AMD, CommonJS, etc
-- [ ] Publish to Bower and NPM
+- [x] Publish to NPM
+- [ ] Publish to Bower
 
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
