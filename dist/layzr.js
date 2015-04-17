@@ -30,7 +30,7 @@
     this._images = document.getElementsByTagName('img');
 
     // call to create
-    document.addEventListener('DOMContentLoaded', this._create(), false);
+    document.addEventListener('DOMContentLoaded', this._create.bind(this), false);
   }
 
   // DEBOUNCE METHODS
