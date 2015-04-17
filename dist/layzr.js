@@ -23,14 +23,14 @@
     this._optionsCallback = options.callback || null;
 
     // properties
-    this._retina = window.devicePixelRatio > 1 ? true : false;
+    this._retina = window.devicePixelRatio > 1;
     this._imgAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
 
     // images nodelist
     this._images = document.getElementsByTagName('img');
 
     // call to create
-    document.addEventListener('DOMContentLoaded', this._create(), false);
+    document.addEventListener('DOMContentLoaded', this._create.bind(this), false);
   }
 
   // DEBOUNCE METHODS
