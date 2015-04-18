@@ -82,6 +82,12 @@
     return offsetTop;
   }
 
+  // check if hidden
+  // borrowed from: https://github.com/jquery/jquery/blob/master/src/css/hiddenVisibleSelectors.js
+  Layzr.prototype._isHidden = function( element ) {
+    return !element.offsetWidth || !element.offsetHeight;
+  }
+
   Layzr.prototype._inViewport = function( imageNode ) {
     // get viewport top and bottom offset
     var viewportTop = this._lastScroll;
@@ -95,7 +101,7 @@
     var threshold = (this._optionsThreshold / 100) * window.innerHeight;
 
     // return if element in viewport
-    return elementBottom >= viewportTop - threshold && elementBottom <= viewportBottom + threshold;
+    return elementBottom >= viewportTop - threshold && elementBottom <= viewportBottom + threshold && !this._isHidden(imageNode);
   }
 
   Layzr.prototype.update = function() {
