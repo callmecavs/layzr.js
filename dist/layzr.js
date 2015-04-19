@@ -26,11 +26,11 @@
     this._retina = window.devicePixelRatio > 1;
     this._imgAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
 
-    // images nodelist
+    // images LIVE nodelist
     this._images = document.getElementsByTagName('img');
 
     // call to create
-    document.addEventListener('DOMContentLoaded', this._create.bind(this), false);
+    this._create();
   }
 
   // DEBOUNCE METHODS
