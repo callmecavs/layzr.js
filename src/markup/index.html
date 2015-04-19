@@ -59,9 +59,11 @@
 
         <p>Load the script:</p>
 
-        <code>&lt;script src="layzr.min.js"&gt;&lt;/script&gt;</code>
+        <code>&lt;script src="layzr.js"&gt;&lt;/script&gt;</code>
 
         <p>For each image, put a placeholder in the src attribute, the regular image in the data-layzr attribute, and the retina image in the data-layzr-retina attribute.</p>
+
+        <p>Note that images without a placeholder may have no height, or appear broken, before they're loaded.</p>
 
         <code>&lt;img src=&quot;optional/placeholder&quot; data-layzr=&quot;normal/image&quot; data-layzr-retina=&quot;optional/retina/image&quot;&gt;</code>
 
@@ -69,10 +71,10 @@
 
         <code>
           var layzr = new Layzr({
-          &#13;&#10;  attr: 'data-layzr',
-          &#13;&#10;  retinaAttr: 'data-layzr-retina',
-          &#13;&#10;  threshold: 0,
-          &#13;&#10;  callback: null
+          &#13;&#10;&nbsp;&nbsp;attr: 'data-layzr',
+          &#13;&#10;&nbsp;&nbsp;retinaAttr: 'data-layzr-retina',
+          &#13;&#10;&nbsp;&nbsp;threshold: 0,
+          &#13;&#10;&nbsp;&nbsp;callback: null
           &#13;&#10;});
         </code>
       </section><!-- END doc-block -->
@@ -120,7 +122,7 @@
           &#13;&#10;
           &#13;&#10;var layzr = new Layzr({
           &#13;&#10;&nbsp;&nbsp;callback: function() {
-          &#13;&#10;  &nbsp;&nbsp;&nbsp;&nbsp;this.classList.add('class-name');
+          &#13;&#10;&nbsp;&nbsp;&nbsp;&nbsp;this.classList.add('class-name');
           &#13;&#10;&nbsp;&nbsp;}
           &#13;&#10;});
         </code>
