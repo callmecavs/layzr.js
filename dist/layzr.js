@@ -17,6 +17,7 @@
     this._ticking = false;
 
     // options
+    this._selector = options.selector || 'img';
     this._optionsAttr = options.attr || 'data-layzr';
     this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
     this._optionsThreshold = options.threshold || 0;
@@ -24,10 +25,10 @@
 
     // properties
     this._retina = window.devicePixelRatio > 1;
-    this._imgAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
+    this._sourceAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
 
-    // images LIVE nodelist
-    this._images = document.getElementsByTagName('img');
+    // nodes LIVE nodelist
+    this._nodes = document.querySelectorAll(this._selector);
 
     // call to create
     this._create();
@@ -82,14 +83,14 @@
     return offsetTop;
   }
 
-  Layzr.prototype._inViewport = function( imageNode ) {
+  Layzr.prototype._inViewport = function( node ) {
     // get viewport top and bottom offset
     var viewportTop = this._lastScroll;
     var viewportBottom = viewportTop + window.innerHeight;
 
-    // get image top and bottom offset
-    var elementTop = this._getOffset(imageNode);
-    var elementBottom = elementTop + imageNode.offsetHeight;
+    // get node top and bottom offset
+    var elementTop = this._getOffset(node);
+    var elementBottom = elementTop + node.offsetHeight;
 
     // calculate threshold, convert percentage to pixel value
     var threshold = (this._optionsThreshold / 100) * window.innerHeight;
@@ -99,20 +100,20 @@
   }
 
   Layzr.prototype.update = function() {
-    // cache image nodelist length
-    var imagesLength = this._images.length;
+    // cache nodelist length
+    var nodesLength = this._nodes.length;
 
-    // loop through images
-    for(var i = 0; i < imagesLength; i++) {
-      // cache image
-      var image = this._images[i];
+    // loop through nodes
+    for(var i = 0; i < nodesLength; i++) {
+      // cache node
+      var node = this._nodes[i];
 
-      // check if image has attribute
-      if(image.hasAttribute(this._imgAttr) || image.hasAttribute(this._optionsAttr)) {
-        // check if image in viewport
-        if(this._inViewport(image)) {
-          // reveal image
-          this.reveal(image);
+      // check if node has attribute
+      if(node.hasAttribute(this._sourceAttr) || node.hasAttribute(this._optionsAttr)) {
+        // check if node in viewport
+        if(this._inViewport(node)) {
+          // reveal node
+          this.reveal(node);
         }
       }
     }
@@ -121,22 +122,22 @@
     this._ticking = false;
   }
 
-  Layzr.prototype.reveal = function( imageNode ) {
-    // get image source
-    var source = imageNode.getAttribute(this._imgAttr) || imageNode.getAttribute(this._optionsAttr);
+  Layzr.prototype.reveal = function( node ) {
+    // get source
+    var source = node.getAttribute(this._sourceAttr) || node.getAttribute(this._optionsAttr);
 
-    // remove image data attributes
-    imageNode.removeAttribute(this._optionsAttr);
-    imageNode.removeAttribute(this._optionsAttrRetina);
+    // remove data attributes
+    node.removeAttribute(this._optionsAttr);
+    node.removeAttribute(this._optionsAttrRetina);
 
-    // set image source, if it has one
+    // set source, if it has one
     if(source) {
-      imageNode.setAttribute('src', source);
+      node.setAttribute('src', source);
 
       // call the callback
       if(typeof this._optionsCallback === 'function') {
-        // this will be the image node in the callback
-        this._optionsCallback.call(imageNode);
+        // this will be the node in the callback
+        this._optionsCallback.call(node);
       }
     }
   }
