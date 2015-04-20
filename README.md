@@ -4,6 +4,7 @@ A small, fast, modern, and dependency-free library for lazy loading images.
 
 * [Project/Demo Page](http://callmecavs.github.io/layzr.js/)
 * [NPM Page](https://www.npmjs.com/package/layzr.js)
+* [![](http://spmjs.io/badge/layzr.js)](http://spmjs.io/package/layzr.js)
 
 ## Docs
 
