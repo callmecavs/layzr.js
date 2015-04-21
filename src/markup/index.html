@@ -71,8 +71,10 @@
 
         <code>
           var layzr = new Layzr({
+          &#13;&#10;&nbsp;&nbsp;selector: '[data-layzr]',
           &#13;&#10;&nbsp;&nbsp;attr: 'data-layzr',
           &#13;&#10;&nbsp;&nbsp;retinaAttr: 'data-layzr-retina',
+          &#13;&#10;&nbsp;&nbsp;bgAttr: 'data-layzr-bg',
           &#13;&#10;&nbsp;&nbsp;threshold: 0,
           &#13;&#10;&nbsp;&nbsp;callback: null
           &#13;&#10;});
@@ -84,9 +86,19 @@
       <section class="doc-block">
         <h2 class="doc-block-heading">Options</h2>
 
+        <p class="lead">selector</p>
+
+        <p>Customize the selector Layzr uses to find elements to lazy load.</p>
+
+        <code>
+          var layzr = new Layzr({
+          &#13;&#10;&nbsp;&nbsp;selector: '.custom-selector'
+          &#13;&#10;});
+        </code>
+
         <p class="lead">attr / retinaAttr</p>
 
-        <p>Customize the data attributes Layzr gets image sources from when creating your instance of Layzr (omit the "data-").</p>
+        <p>Customize the data attributes Layzr gets image sources from when creating your instance of Layzr. Omit the &ldquo;data-&rdquo; part.</p>
 
         <p>Images without either attribute will be ignored by Layzr.</p>
 
@@ -94,6 +106,16 @@
           var layzr = new Layzr({
           &#13;&#10;&nbsp;&nbsp;attr: 'custom-image-attribute',
           &#13;&#10;&nbsp;&nbsp;retinaAttr: 'custom-retina-attribute'
+          &#13;&#10;});
+        </code>
+
+        <p class="lead">bgAttr</p>
+
+        <p>Elements that match the selector and have this attribute will load their image as a background image.</p>
+
+        <code>
+          var layzr = new Layzr({
+          &#13;&#10;&nbsp;&nbsp;bgAttr: 'custom-background-attribute'
           &#13;&#10;});
         </code>
 
