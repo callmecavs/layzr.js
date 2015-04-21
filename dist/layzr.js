@@ -11,7 +11,7 @@
 
   // CONSTRUCTOR
 
-  function Layzr( options ) {
+  function Layzr(options) {
     // debounce
     this._lastScroll = 0;
     this._ticking = false;
@@ -35,7 +35,7 @@
     this._create();
   }
 
-  // DEBOUNCE METHODS
+  // DEBOUNCE HELPERS
   // adapted from: http://www.html5rocks.com/en/tutorials/speed/animations/
 
   Layzr.prototype._requestScroll = function() {
@@ -50,7 +50,22 @@
     }
   }
 
-  // Layzr METHODS
+  // OFFSET HELPER
+  // borrowed from: http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
+
+  Layzr.prototype._getOffset = function(element) {
+    var offsetTop  = 0;
+
+    do {
+      if(!isNaN(element.offsetTop)) {
+        offsetTop  += element.offsetTop;
+      }
+    } while (element = element.offsetParent);
+
+    return offsetTop;
+  }
+
+  // LAYZR METHODS
 
   Layzr.prototype._create = function() {
     // fire scroll event once
@@ -69,22 +84,7 @@
     window.removeEventListener('resize', this._requestScroll.bind(this), false);
   }
 
-  // offset helper
-  // borrowed from: http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
-
-  Layzr.prototype._getOffset = function( element ) {
-    var offsetTop  = 0;
-
-    do {
-      if(!isNaN(element.offsetTop)) {
-        offsetTop  += element.offsetTop;
-      }
-    } while (element = element.offsetParent);
-
-    return offsetTop;
-  }
-
-  Layzr.prototype._inViewport = function( node ) {
+  Layzr.prototype._inViewport = function(node) {
     // get viewport top and bottom offset
     var viewportTop = this._lastScroll;
     var viewportBottom = viewportTop + window.innerHeight;
@@ -100,30 +100,7 @@
     return elementBottom >= viewportTop - threshold && elementBottom <= viewportBottom + threshold;
   }
 
-  Layzr.prototype.update = function() {
-    // cache nodelist length
-    var nodesLength = this._nodes.length;
-
-    // loop through nodes
-    for(var i = 0; i < nodesLength; i++) {
-      // cache node
-      var node = this._nodes[i];
-
-      // check if node has mandatory attribute
-      if(node.hasAttribute(this._optionsAttr)) {
-        // check if node in viewport
-        if(this._inViewport(node)) {
-          // reveal node
-          this.reveal(node);
-        }
-      }
-    }
-
-    // allow for more animation frames
-    this._ticking = false;
-  }
-
-  Layzr.prototype.reveal = function( node ) {
+  Layzr.prototype._reveal = function(node) {
     // get node source
     var source = node.getAttribute(this._srcAttr) || node.getAttribute(this._optionsAttr);
 
@@ -145,6 +122,34 @@
     node.removeAttribute(this._optionsAttr);
     node.removeAttribute(this._optionsAttrRetina);
     node.removeAttribute(this._optionsAttrBg);
+  }
+
+  Layzr.prototype.updateSelector = function() {
+    // update cached list of elements matching selector
+    this._nodes = document.querySelectorAll(this._optionsSelector);
+  }
+
+  Layzr.prototype.update = function() {
+    // cache nodelist length
+    var nodesLength = this._nodes.length;
+
+    // loop through nodes
+    for(var i = 0; i < nodesLength; i++) {
+      // cache node
+      var node = this._nodes[i];
+
+      // check if node has mandatory attribute
+      if(node.hasAttribute(this._optionsAttr)) {
+        // check if node in viewport
+        if(this._inViewport(node)) {
+          // reveal node
+          this._reveal(node);
+        }
+      }
+    }
+
+    // allow for more animation frames
+    this._ticking = false;
   }
 
   return Layzr;
