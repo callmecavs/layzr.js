@@ -20,6 +20,7 @@
     this._optionsSelector = options.selector || '[data-layzr]';
     this._optionsAttr = options.attr || 'data-layzr';
     this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
+    this._optionsAttrBg = options.bgAttr || 'data-layzr-bg';
     this._optionsThreshold = options.threshold || 0;
     this._optionsCallback = options.callback || null;
 
@@ -126,20 +127,24 @@
     // get node source
     var source = node.getAttribute(this._srcAttr) || node.getAttribute(this._optionsAttr);
 
+    // set node src or bg image
+    if(node.hasAttribute(this._optionsAttrBg)) {
+      node.style.backgroundImage = 'url(' + source + ')';
+    }
+    else {
+      node.setAttribute('src', source);
+    }
+
+    // call the callback
+    if(typeof this._optionsCallback === 'function') {
+      // "this" will be the node in the callback
+      this._optionsCallback.call(node);
+    }
+
     // remove node data attributes
     node.removeAttribute(this._optionsAttr);
     node.removeAttribute(this._optionsAttrRetina);
-
-    // set node source, if it has one
-    if(source) {
-      node.setAttribute('src', source);
-
-      // call the callback
-      if(typeof this._optionsCallback === 'function') {
-        // "this" will be the node in the callback
-        this._optionsCallback.call(node);
-      }
-    }
+    node.removeAttribute(this._optionsAttrBg);
   }
 
   return Layzr;
