@@ -1,0 +1,12 @@
+{
+  "name": "layzr.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/callmecavs/layzr.js",
+  "description": "A small, fast, modern, and dependency-free library for lazy loading.",
+  "main": "layzr.js",
+  "keywords": [
+    "lazy",
+    "loading"
+  ],
+  "license": "MIT"
+}
