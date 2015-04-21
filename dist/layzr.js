@@ -108,8 +108,8 @@
       // cache node
       var node = this._nodes[i];
 
-      // check if node has attribute
-      if(node.hasAttribute(this._srcAttr) || node.hasAttribute(this._optionsAttr)) {
+      // check if node has mandatory attribute
+      if(node.hasAttribute(this._optionsAttr)) {
         // check if node in viewport
         if(this._inViewport(node)) {
           // reveal node
