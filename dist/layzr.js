@@ -41,14 +41,14 @@
   Layzr.prototype._requestScroll = function() {
     this._lastScroll = window.scrollY || window.pageYOffset;
     this._requestTick();
-  }
+  };
 
   Layzr.prototype._requestTick = function() {
     if(!this._ticking) {
       requestAnimationFrame(this.update.bind(this));
       this._ticking = true;
     }
-  }
+  };
 
   // OFFSET HELPER
   // borrowed from: http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
@@ -63,7 +63,7 @@
     } while (element = element.offsetParent);
 
     return offsetTop;
-  }
+  };
 
   // LAYZR METHODS
 
@@ -74,7 +74,7 @@
     // bind scroll and resize event
     window.addEventListener('scroll', this._requestScroll.bind(this), false);
     window.addEventListener('resize', this._requestScroll.bind(this), false);
-  }
+  };
 
   Layzr.prototype._destroy = function() {
     // possibly remove attributes, and set all sources?
@@ -82,7 +82,7 @@
     // unbind scroll and resize event
     window.removeEventListener('scroll', this._requestScroll.bind(this), false);
     window.removeEventListener('resize', this._requestScroll.bind(this), false);
-  }
+  };
 
   Layzr.prototype._inViewport = function(node) {
     // get viewport top and bottom offset
@@ -98,7 +98,7 @@
 
     // return if element in viewport
     return elementBottom >= viewportTop - threshold && elementBottom <= viewportBottom + threshold;
-  }
+  };
 
   Layzr.prototype._reveal = function(node) {
     // get node source
@@ -122,12 +122,12 @@
     node.removeAttribute(this._optionsAttr);
     node.removeAttribute(this._optionsAttrRetina);
     node.removeAttribute(this._optionsAttrBg);
-  }
+  };
 
   Layzr.prototype.updateSelector = function() {
     // update cached list of elements matching selector
     this._nodes = document.querySelectorAll(this._optionsSelector);
-  }
+  };
 
   Layzr.prototype.update = function() {
     // cache nodelist length
@@ -150,7 +150,7 @@
 
     // allow for more animation frames
     this._ticking = false;
-  }
+  };
 
   return Layzr;
 }));
