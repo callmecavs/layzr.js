@@ -17,10 +17,6 @@ $proxima: "proxima-nova";
 @import "mixins";
 @import "reset";
 
-// IE9 specific
-
-@import "ie";
-
 body {
   padding: 15vh 0;
   background-color: #F9F9F9;
@@ -34,6 +30,10 @@ body {
   @include mq-min($desktop) {
     padding: 22.5vh 0;
   }
+}
+
+a {
+  color: $green;
 }
 
 // partials

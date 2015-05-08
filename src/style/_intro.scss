@@ -10,10 +10,12 @@
 }
 
 .intro-subtext {
+  margin-bottom: 25px;
   font-size: 2.1rem;
 
-  &:first-of-type {
-    margin-bottom: 25px;
+  &:first-of-type,
+  &:last-of-type {
+    margin-bottom: 0;
   }
 }
 
