@@ -86,10 +86,38 @@ var layzr = new Layzr({
 });
 ```
 
-The data attributes, threshold, and callback are fully customizable. Documentation for all options follows:
+Explanation of each follows:
 
-## Options
+### selector
 
+Customize the selector used to find elements to lazy load - using CSS selector syntax.
+
+```javascript
+var layzr = new Layzr({
+  selector: '[data-layzr]'
+});
+```
+
+### attr / retinaAttr
+
+Customize the data attributes that image sources are taken from.
+
+```javascript
+var layzr = new Layzr({
+  attr: 'data-layzr',
+  retinaAttr: 'data-layzr-retina'
+});
+```
+
+### bgAttr
+
+Customize the data attribute that loads the image as a background.
+
+```javascript
+var layzr = new Layzr({
+  bgAttr: 'data-layzr-bg'
+});
+```
 
 
 ## Browser Support
