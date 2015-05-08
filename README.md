@@ -1,12 +1,10 @@
 # Layzr.js
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/callmecavs/layzr.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Layzr.js on NPM](https://img.shields.io/npm/v/layzr.js.svg)](https://www.npmjs.com/package/layzr.js) [![Layzr.js on Bower](https://img.shields.io/bower/v/layzr.js.svg)](http://bower.io/search/?q=layzr.js) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/callmecavs/layzr.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 A small, fast, modern, and dependency-free library for lazy loading.
 
-* [Project/Demo Page](http://callmecavs.github.io/layzr.js/)
-* [NPM Page](https://www.npmjs.com/package/layzr.js)
-* [Bower Page](http://bower.io/search/?q=layzr.js)
+* [Demo Page](http://callmecavs.github.io/layzr.js/)
 
 ## Docs
 
