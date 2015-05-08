@@ -14,18 +14,19 @@
   function Layzr(options) {
     // debounce
     this._lastScroll = 0;
-    this._ticking = false;
+    this._ticking    = false;
 
     // options
-    this._optionsSelector = options.selector || '[data-layzr]';
-    this._optionsAttr = options.attr || 'data-layzr';
+    this._optionsSelector   = options.selector || '[data-layzr]';
+    this._optionsAttr       = options.attr || 'data-layzr';
     this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
-    this._optionsAttrBg = options.bgAttr || 'data-layzr-bg';
-    this._optionsThreshold = options.threshold || 0;
-    this._optionsCallback = options.callback || null;
+    this._optionsAttrBg     = options.bgAttr || 'data-layzr-bg';
+    this._optionsAttrHidden = options.hiddenAttr || 'data-layzr-hidden';
+    this._optionsThreshold  = options.threshold || 0;
+    this._optionsCallback   = options.callback || null;
 
     // properties
-    this._retina = window.devicePixelRatio > 1;
+    this._retina  = window.devicePixelRatio > 1;
     this._srcAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
 
     // nodelist
@@ -54,13 +55,13 @@
   // borrowed from: http://stackoverflow.com/questions/5598743/finding-elements-position-relative-to-the-document
 
   Layzr.prototype._getOffset = function(element) {
-    var offsetTop  = 0;
+    var offsetTop = 0;
 
     do {
       if(!isNaN(element.offsetTop)) {
-        offsetTop  += element.offsetTop;
+        offsetTop += element.offsetTop;
       }
-    } while (element = element.offsetParent);
+    } while(element = element.offsetParent);
 
     return offsetTop;
   };
@@ -97,7 +98,9 @@
     var threshold = (this._optionsThreshold / 100) * window.innerHeight;
 
     // return if element in viewport
-    return elementBottom >= viewportTop - threshold && elementBottom <= viewportBottom + threshold;
+    return elementBottom >= viewportTop - threshold
+        && elementBottom <= viewportBottom + threshold
+        && !node.hasAttribute(this._optionsAttrHidden);
   };
 
   Layzr.prototype._reveal = function(node) {
@@ -122,6 +125,7 @@
     node.removeAttribute(this._optionsAttr);
     node.removeAttribute(this._optionsAttrRetina);
     node.removeAttribute(this._optionsAttrBg);
+    node.removeAttribute(this._optionsAttrHidden);
   };
 
   Layzr.prototype.updateSelector = function() {
