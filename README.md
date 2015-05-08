@@ -63,7 +63,17 @@ The `data-layzr-bg` attribute should be valueless - the image source is still ta
 
 ### Instance Creation
 
-Create a new instance with your desired options. Defaults shown below:
+Create a new instance, and that's it!
+
+```javascript
+var layzr = new Layzr();
+```
+
+Documentation for all options follows:
+
+## Options
+
+Defaults shown below:
 
 ```javascript
 var layzr = new Layzr({
