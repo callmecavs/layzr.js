@@ -78,13 +78,19 @@ var layzr = new Layzr({
 
 All options are fully customizable. Review the [Options](http://callmecavs.github.io/layzr.js/#options) section of the documentation for more details.
 
+## Browser Support
+
+Layzr natively supports **IE10+**.
+
+To extend support to older browsers, consider including [Paul Irish's polyfill](https://gist.github.com/paulirish/1579671) for [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
+
+There are currently no plans to include the polyfill in the library, in the interest of file size.
+
 ## Docs
 
-See the project page for documentation. Section links below:
+The project page includes additional documentation. Relevant section links below:
 
-* [Usage](http://callmecavs.github.io/layzr.js/#usage)
 * [Options](http://callmecavs.github.io/layzr.js/#options)
-* [Browsers](http://callmecavs.github.io/layzr.js/#browsers)
 
 ## Roadmap
 
