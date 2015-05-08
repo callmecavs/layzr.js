@@ -153,7 +153,7 @@ var layzr = new Layzr({
 
 Layzr natively supports **IE10+**.
 
-To extend support to older browsers, consider including [Paul Irish's polyfill](https://gist.github.com/paulirish/1579671) for [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
+To add support for older browsers, consider including [Paul Irish's polyfill](https://gist.github.com/paulirish/1579671) for [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
 
 There are currently no plans to include the polyfill in the library, in the interest of file size.
 
