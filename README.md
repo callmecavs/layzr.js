@@ -157,11 +157,18 @@ To extend support to older browsers, consider including [Paul Irish's polyfill](
 
 There are currently no plans to include the polyfill in the library, in the interest of file size.
 
-## Docs
+## Colophon
 
-The project page includes additional documentation. Relevant section links below:
+* Site Design: [Chris Allen](https://dribbble.com/cp_allen)
+* Stock Photos: [Unsplash](https://unsplash.com/)
+* Heading Links: [heading-links.js](https://github.com/callmecavs/heading-links.js)
+* Google Analytics Isogram: [isogrammer](http://isogrammer.com/)
+* Inspiration: [Headroom.js](http://wicky.nillia.ms/headroom.js/), [jQuery Unveil](http://luis-almeida.github.io/unveil/)
+* Education: [Paul Lewis](http://www.html5rocks.com/en/tutorials/speed/animations/)
 
-* [Options](http://callmecavs.github.io/layzr.js/#options)
+## License
+
+MIT. © 2015 Michael Cavalea
 
 ## Roadmap
 
