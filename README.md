@@ -76,7 +76,11 @@ var layzr = new Layzr({
 });
 ```
 
-All options are fully customizable. Review the [Options](http://callmecavs.github.io/layzr.js/#options) section of the documentation for more details.
+The data attributes, threshold, and callback are fully customizable. Documentation for all options follows:
+
+## Options
+
+
 
 ## Browser Support
 
