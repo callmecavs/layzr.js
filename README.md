@@ -121,7 +121,7 @@ var layzr = new Layzr({
 
 ### threshold
 
-Adjust when images load, relative to the bottom of the viewport. Positive values make elements load _sooner_.
+Adjust when images load, relative to the viewport. Positive values make elements load _sooner_.
 
 Threshold is a percentage of the viewport height - think of it as similar to the CSS `vh` unit.
 
@@ -130,6 +130,22 @@ Threshold is a percentage of the viewport height - think of it as similar to the
 
 var layzr = new Layzr({
   threshold: 50
+});
+```
+
+### callback
+
+Invoke a callback function each time an image is loaded.
+
+The image _may not be fully loaded before the function is called_. Detecting image load is inconsistent at best in modern browsers.
+
+```javascript
+// in the callback function, "this" refers to the image node
+
+var layzr = new Layzr({
+  callback: function() {
+    this.classList.add('class');
+  }
 });
 ```
 
