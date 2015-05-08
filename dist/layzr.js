@@ -29,7 +29,6 @@
     this._srcAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
 
     // nodelist
-    this._amtNodes = 0;
     this.updateSelector();
 
     // call to create
@@ -130,20 +129,22 @@
     var nl = document.querySelectorAll(this._optionsSelector);
     this._nodes = [];
 
-    for (var i = 0, c = this._nodes.length = this._amtNodes = nl.length; i < c; i++) {
+    for (var i = 0, c = this._nodes.length = nl.length; i < c; i++) {
       this._nodes[i] = nl[i];
     }
   };
 
   Layzr.prototype.addElement = function(element) {
-    this._nodes[++this._amtNodes] = element;
+    this._nodes.push(element);
   };
 
   Layzr.prototype.update = function() {
+    // cache nodelist length 
+    var nodesLength = this._nodes.length;
     var node;
 
     // loop through nodes
-    for(var i = 0; i < this._amtNodes; i++) {
+    for(var i = 0; i < nodesLength; i++) {
       // cache node
       node = this._nodes[i];
 
