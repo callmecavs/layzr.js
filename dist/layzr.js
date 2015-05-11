@@ -25,6 +25,12 @@
     this._optionsThreshold  = options.threshold || 0;
     this._optionsCallback   = options.callback || null;
 
+    if (options.container) {
+      this._container = document.querySelector(options.container);
+    } else {
+      this._container = window;
+    }
+
     // properties
     this._retina  = window.devicePixelRatio > 1;
     this._srcAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
@@ -40,7 +46,11 @@
   // adapted from: http://www.html5rocks.com/en/tutorials/speed/animations/
 
   Layzr.prototype._requestScroll = function() {
-    this._lastScroll = window.scrollY || window.pageYOffset;
+    if (this._container == window) {
+      this._lastScroll = window.scrollY || window.pageYOffset;
+    } else {
+      this._lastScroll = this._container.scrollTop + this._getOffset(this._container);
+    }
     this._requestTick();
   };
 
@@ -73,29 +83,34 @@
     this._requestScroll();
 
     // bind scroll and resize event
-    window.addEventListener('scroll', this._requestScroll.bind(this), false);
-    window.addEventListener('resize', this._requestScroll.bind(this), false);
+    this._container.addEventListener('scroll', this._requestScroll.bind(this), false);
+    this._container.addEventListener('resize', this._requestScroll.bind(this), false);
   };
 
   Layzr.prototype._destroy = function() {
     // possibly remove attributes, and set all sources?
 
     // unbind scroll and resize event
-    window.removeEventListener('scroll', this._requestScroll.bind(this), false);
-    window.removeEventListener('resize', this._requestScroll.bind(this), false);
+    this._container.removeEventListener('scroll', this._requestScroll.bind(this), false);
+    this._container.removeEventListener('resize', this._requestScroll.bind(this), false);
+  };
+
+  Layzr.prototype._getInnerHeight = function() {
+    var container = this._container;
+    return container.innerHeight || container.offsetHeight;
   };
 
   Layzr.prototype._inViewport = function(node) {
     // get viewport top and bottom offset
     var viewportTop = this._lastScroll;
-    var viewportBottom = viewportTop + window.innerHeight;
+    var viewportBottom = viewportTop + this._getInnerHeight();
 
     // get node top and bottom offset
     var elementTop = this._getOffset(node);
     var elementBottom = elementTop + node.offsetHeight;
 
     // calculate threshold, convert percentage to pixel value
-    var threshold = (this._optionsThreshold / 100) * window.innerHeight;
+    var threshold = (this._optionsThreshold / 100) * this._getInnerHeight();
 
     // return if element in viewport
     return elementBottom >= viewportTop - threshold
