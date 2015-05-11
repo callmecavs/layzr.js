@@ -30,7 +30,7 @@
     this._srcAttr = this._retina ? this._optionsAttrRetina : this._optionsAttr;
 
     // nodelist
-    this._nodes = document.querySelectorAll(this._optionsSelector);
+    this.updateSelector();
 
     // call to create
     this._create();
@@ -130,17 +130,27 @@
 
   Layzr.prototype.updateSelector = function() {
     // update cached list of elements matching selector
-    this._nodes = document.querySelectorAll(this._optionsSelector);
+    var nl = document.querySelectorAll(this._optionsSelector);
+    this._nodes = [];
+
+    for (var i = 0, c = this._nodes.length = nl.length; i < c; i++) {
+      this._nodes[i] = nl[i];
+    }
+  };
+
+  Layzr.prototype.addElement = function(element) {
+    this._nodes.push(element);
   };
 
   Layzr.prototype.update = function() {
-    // cache nodelist length
+    // cache nodelist length 
     var nodesLength = this._nodes.length;
+    var node;
 
     // loop through nodes
     for(var i = 0; i < nodesLength; i++) {
       // cache node
-      var node = this._nodes[i];
+      node = this._nodes[i];
 
       // check if node has mandatory attribute
       if(node.hasAttribute(this._optionsAttr)) {
