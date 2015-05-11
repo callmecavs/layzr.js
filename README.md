@@ -61,6 +61,16 @@ The `data-layzr-bg` attribute should be valueless - the image source is still ta
 <img data-layzr="image/source" data-layzr-bg>
 ```
 
+#### (Optional) Hidden Images
+
+Include the `data-layzr-hidden` attribute to prevent an image from loading.
+
+Removing this attribute _will not load the image_ - the user will still need to scroll, and the element will still need to be in the viewport.
+
+```html
+<img data-layzr="image/source" data-layzr-hidden>
+```
+
 ### Instance Creation
 
 Create a new instance, and that's it!
@@ -81,6 +91,7 @@ var layzr = new Layzr({
   attr: 'data-layzr',
   retinaAttr: 'data-layzr-retina',
   bgAttr: 'data-layzr-bg',
+  hiddenAttr: 'data-layzr-hidden',
   threshold: 0,
   callback: null
 });
@@ -111,11 +122,21 @@ var layzr = new Layzr({
 
 ### bgAttr
 
-Customize the data attribute that loads the image as a background.
+Customize the data attribute that loads images as a background.
 
 ```javascript
 var layzr = new Layzr({
   bgAttr: 'data-layzr-bg'
+});
+```
+
+### hiddenAttr
+
+Customize the data attribute that prevents images from loading.
+
+```javascript
+var layzr = new Layzr({
+  hiddenAttr: 'data-layzr-hidden'
 });
 ```
 
