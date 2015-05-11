@@ -16,6 +16,8 @@
     this._lastScroll = 0;
     this._ticking    = false;
 
+    options = options || {};
+
     // options
     this._optionsSelector   = options.selector || '[data-layzr]';
     this._optionsAttr       = options.attr || 'data-layzr';
