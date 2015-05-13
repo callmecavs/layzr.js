@@ -16,9 +16,9 @@
     this._lastScroll = 0;
     this._ticking    = false;
 
+    // options
     options = options || {};
 
-    // options
     this._optionsSelector   = options.selector || '[data-layzr]';
     this._optionsAttr       = options.attr || 'data-layzr';
     this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
