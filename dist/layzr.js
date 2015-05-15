@@ -101,7 +101,7 @@
 
     // return if element in viewport
     return elementBottom >= viewportTop - threshold
-        && elementBottom <= viewportBottom + threshold
+        && elementTop <= viewportBottom + threshold
         && !node.hasAttribute(this._optionsAttrHidden);
   };
 
