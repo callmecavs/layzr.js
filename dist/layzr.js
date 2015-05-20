@@ -34,6 +34,9 @@
     // nodelist
     this._nodes = document.querySelectorAll(this._optionsSelector);
 
+    // nodes already shown
+    this._revealedNodes = 0;
+
     // call to create
     this._create();
   }
@@ -74,17 +77,19 @@
     // fire scroll event once
     this._requestScroll();
 
+    // little trick to be able to unbind the events
+    // from the window...
+    this._requestScrollBind = this._requestScroll.bind(this);
+
     // bind scroll and resize event
-    window.addEventListener('scroll', this._requestScroll.bind(this), false);
-    window.addEventListener('resize', this._requestScroll.bind(this), false);
+    window.addEventListener('scroll', this._requestScrollBind, false);
+    window.addEventListener('resize', this._requestScrollBind, false);
   };
 
   Layzr.prototype._destroy = function() {
-    // possibly remove attributes, and set all sources?
-
     // unbind scroll and resize event
-    window.removeEventListener('scroll', this._requestScroll.bind(this), false);
-    window.removeEventListener('resize', this._requestScroll.bind(this), false);
+    window.removeEventListener('scroll', this._requestScrollBind, false);
+    window.removeEventListener('resize', this._requestScrollBind, false);
   };
 
   Layzr.prototype._inViewport = function(node) {
@@ -150,9 +155,14 @@
         if(this._inViewport(node)) {
           // reveal node
           this._reveal(node);
+          this._revealedNodes += 1;
         }
       }
     }
+
+    // if all nodes are already shown,
+    // unbind all events from window
+    if (this._nodes.length === this._revealedNodes) this._destroy();
 
     // allow for more animation frames
     this._ticking = false;
