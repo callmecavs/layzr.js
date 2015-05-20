@@ -160,7 +160,7 @@
       }
     }
 
-    // if all nodes are alredy shown,
+    // if all nodes are already shown,
     // unbind all events from window
     if (this._nodes.length === this._revealedNodes) this._destroy();
 
