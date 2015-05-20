@@ -14,7 +14,7 @@ Lazy loading boosts page speed by deferring the loading of images until they're 
 
 Load the script.
 
-[Download it](https://github.com/callmecavs/layzr.js/archive/master.zip), install it with [NPM](https://www.npmjs.com/package/layzr.js), install it with [Bower](http://bower.io/search/?q=layzr.js) or use one of the CDNs.
+[Download it](https://github.com/callmecavs/layzr.js/archive/master.zip), install it with [NPM](https://www.npmjs.com/package/layzr.js), or install it with [Bower](http://bower.io/search/?q=layzr.js).
 
 ```html
 <script src="layzr.js"></script>
@@ -22,14 +22,18 @@ Load the script.
 
 #### CDN
 
-[jsDelivr](http://www.jsdelivr.com/#!layzr.js):
-```html
-<script src="//cdn.jsdelivr.net/layzr.js/1.2.2/layzr.min.js"></script>
-```
+The script is also available via CDN.
+
+In the examples below, replace `{version}` with your desired version.
 
 [cdnjs](https://cdnjs.com/libraries/layzr.js):
 ```html
-<script src="//cdnjs.cloudflare.com/ajax/libs/layzr.js/1.2.2/layzr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/{version}/layzr.min.js"></script>
+```
+
+[jsDelivr](http://www.jsdelivr.com/#!layzr.js):
+```html
+<script src="https://cdn.jsdelivr.net/layzr.js/{version}/layzr.min.js"></script>
 ```
 
 ### Image Setup
