@@ -24,7 +24,7 @@ Load the script.
 
 The script is also available via CDN.
 
-In the examples below, replace `{version}` with your desired version.
+In the examples below, replace `{version}` with your desired version. Refer to the [releases](https://github.com/callmecavs/layzr.js/releases) page for version info.
 
 ##### [cdnjs](https://cdnjs.com/libraries/layzr.js)
 ```html
