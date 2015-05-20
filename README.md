@@ -14,10 +14,22 @@ Lazy loading boosts page speed by deferring the loading of images until they're 
 
 Load the script.
 
-[Download it](https://github.com/callmecavs/layzr.js/archive/master.zip), install it with [NPM](https://www.npmjs.com/package/layzr.js), or install it with [Bower](http://bower.io/search/?q=layzr.js).
+[Download it](https://github.com/callmecavs/layzr.js/archive/master.zip), install it with [NPM](https://www.npmjs.com/package/layzr.js), install it with [Bower](http://bower.io/search/?q=layzr.js) or use one of the CDNs.
 
 ```html
 <script src="layzr.js"></script>
+```
+
+#### CDN
+
+[jsDelivr](http://www.jsdelivr.com/#!layzr.js):
+```html
+<script src="//cdn.jsdelivr.net/layzr.js/1.2.2/layzr.min.js"></script>
+```
+
+[cdnjs](https://cdnjs.com/libraries/layzr.js):
+```html
+<script src="//cdnjs.cloudflare.com/ajax/libs/layzr.js/1.2.2/layzr.min.js"></script>
 ```
 
 ### Image Setup
@@ -193,6 +205,6 @@ MIT. © 2015 Michael Cavalea
 
 ## Roadmap
 
-- [ ] Add to CDN?
+- [x] Add to CDN?
 
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
