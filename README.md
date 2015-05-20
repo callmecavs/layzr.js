@@ -26,12 +26,12 @@ The script is also available via CDN.
 
 In the examples below, replace `{version}` with your desired version.
 
-[cdnjs](https://cdnjs.com/libraries/layzr.js):
+##### [cdnjs](https://cdnjs.com/libraries/layzr.js)
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/{version}/layzr.min.js"></script>
 ```
 
-[jsDelivr](http://www.jsdelivr.com/#!layzr.js):
+##### [jsDelivr](http://www.jsdelivr.com/#!layzr.js)
 ```html
 <script src="https://cdn.jsdelivr.net/layzr.js/{version}/layzr.min.js"></script>
 ```
