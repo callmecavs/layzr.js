@@ -16,7 +16,7 @@ var onError = function(error) {
 
 // concat and uglify scripts
 gulp.task('scripts', function() {
-  return gulp.src('dist/layzr.js')
+  return gulp.src('src/layzr.js')
     .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(gulp.dest('dist'))
     .pipe(plugins.uglify())
@@ -37,7 +37,7 @@ gulp.task('server', function() {
 
 // watch sass and js files
 gulp.task('watch', function() {
-  gulp.watch('dist/layzr.js', ['scripts']);
+  gulp.watch('src/layzr.js', ['scripts']);
 });
 
 // build and default task
