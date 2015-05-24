@@ -19,7 +19,7 @@ gulp.task('scripts', function() {
   return gulp.src('src/layzr.js')
     .pipe(plugins.plumber({ errorHandler: onError }))
     .pipe(gulp.dest('dist'))
-    .pipe(plugins.uglify())
+    .pipe(plugins.uglify({ preserveComments: 'some' }))
     .pipe(plugins.rename(function(path) {
       path.basename = "layzr.min"
     }))
