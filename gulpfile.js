@@ -18,6 +18,7 @@ var onError = function(error) {
 gulp.task('scripts', function() {
   return gulp.src('src/layzr.js')
     .pipe(plugins.plumber({ errorHandler: onError }))
+    .pipe(plugins.umd())
     .pipe(gulp.dest('dist'))
     .pipe(plugins.uglify({ preserveComments: 'some' }))
     .pipe(plugins.rename(function(path) {
