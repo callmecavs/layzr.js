@@ -1,3 +1,9 @@
+/*!
+ * Layzr.js 1.3.0 - A small, fast, modern, and dependency-free library for lazy loading.
+ * Copyright (c) 2015 Michael Cavalea - http://callmecavs.github.io/layzr.js/
+ * License: MIT
+ */
+
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory);
