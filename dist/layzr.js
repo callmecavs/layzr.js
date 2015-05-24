@@ -7,12 +7,6 @@
     root.Layzr = factory();
   }
 }(this, function() {
-/*!
- * Layzr.js v1.2.3 - A small, fast, modern, and dependency-free library for lazy loading.
- * Copyright (c) 2015 Michael Cavalea - http://callmecavs.github.io/layzr.js/
- * License: MIT
- */
-
 'use strict';
 
 // CONSTRUCTOR
