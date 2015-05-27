@@ -103,6 +103,7 @@ Defaults shown below:
 
 ```javascript
 var layzr = new Layzr({
+  container: null,
   selector: '[data-layzr]',
   attr: 'data-layzr',
   retinaAttr: 'data-layzr-retina',
@@ -114,6 +115,18 @@ var layzr = new Layzr({
 ```
 
 Explanation of each follows:
+
+### container
+
+Customize the container that holds the elements to lazy load - using CSS selector syntax. This option may be useful when building single page applications.
+
+Note that `window` is assumed to be the container if this option is set to `null`.
+
+```javascript
+var layzr = new Layzr({
+  container: null
+});
+```
 
 ### selector
 

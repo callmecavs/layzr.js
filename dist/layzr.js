@@ -1,5 +1,5 @@
 /*!
- * Layzr.js 1.3.0 - A small, fast, modern, and dependency-free library for lazy loading.
+ * Layzr.js 1.4.0 - A small, fast, modern, and dependency-free library for lazy loading.
  * Copyright (c) 2015 Michael Cavalea - http://callmecavs.github.io/layzr.js/
  * License: MIT
  */
@@ -25,6 +25,7 @@ function Layzr(options) {
   // options
   options = options || {};
 
+  this._optionsContainer  = document.querySelector(options.container) || window;
   this._optionsSelector   = options.selector || '[data-layzr]';
   this._optionsAttr       = options.attr || 'data-layzr';
   this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
@@ -48,7 +49,13 @@ function Layzr(options) {
 // adapted from: http://www.html5rocks.com/en/tutorials/speed/animations/
 
 Layzr.prototype._requestScroll = function() {
-  this._lastScroll = window.scrollY || window.pageYOffset;
+  if(this._optionsContainer === window) {
+    this._lastScroll = window.scrollY || window.pageYOffset;
+  }
+  else {
+    this._lastScroll = this._optionsContainer.scrollTop + this._getOffset(this._optionsContainer);
+  }
+
   this._requestTick();
 };
 
@@ -74,6 +81,13 @@ Layzr.prototype._getOffset = function(element) {
   return offsetTop;
 };
 
+// HEIGHT HELPER
+
+Layzr.prototype._getContainerHeight = function() {
+  return this._optionsContainer.innerHeight
+      || this._optionsContainer.offsetHeight;
+}
+
 // LAYZR METHODS
 
 Layzr.prototype._create = function() {
@@ -81,26 +95,26 @@ Layzr.prototype._create = function() {
   this._requestScroll();
 
   // bind scroll and resize event
-  window.addEventListener('scroll', this._requestScroll.bind(this), false);
-  window.addEventListener('resize', this._requestScroll.bind(this), false);
+  this._optionsContainer.addEventListener('scroll', this._requestScroll.bind(this), false);
+  this._optionsContainer.addEventListener('resize', this._requestScroll.bind(this), false);
 };
 
 Layzr.prototype._destroy = function() {
   // possibly remove attributes, and set all sources?
 
   // unbind scroll and resize event
-  window.removeEventListener('scroll', this._requestScroll.bind(this), false);
-  window.removeEventListener('resize', this._requestScroll.bind(this), false);
+  this._optionsContainer.removeEventListener('scroll', this._requestScroll.bind(this), false);
+  this._optionsContainer.removeEventListener('resize', this._requestScroll.bind(this), false);
 };
 
 Layzr.prototype._inViewport = function(node) {
   // get viewport top and bottom offset
   var viewportTop = this._lastScroll;
-  var viewportBottom = viewportTop + window.innerHeight;
+  var viewportBottom = viewportTop + this._getContainerHeight();
 
   // get node top and bottom offset
   var elementTop = this._getOffset(node);
-  var elementBottom = elementTop + node.offsetHeight;
+  var elementBottom = elementTop + this._getContainerHeight();
 
   // calculate threshold, convert percentage to pixel value
   var threshold = (this._optionsThreshold / 100) * window.innerHeight;
