@@ -4,10 +4,11 @@
 
 function HeadingLinks( options ) {
   // defaults
-  this._selector         = options.selector || 'h1, h2, h3';
-  this._hoverLinks       = options.hoverLinks !== false;
-  this._hoverHeadingAttr = options.hoverHeadingAttr || 'data-heading';
-  this._hoverLinkAttr    = options.hoverLinkAttr || 'data-heading-link';
+  this._selector          = options.selector || 'h1, h2, h3';
+  this._hoverLinks        = options.hoverLinks !== false;
+  this._hoverHeadingAttr  = options.hoverHeadingAttr || 'data-heading';
+  this._hoverLinkAttr     = options.hoverLinkAttr || 'data-heading-link';
+  this._hoverLinkPosition = options.hoverLinkPosition || 'after';
 
   // headings vars
   this._headings       = document.querySelectorAll(this._selector);
@@ -72,8 +73,15 @@ HeadingLinks.prototype.addHoverLinks = function() {
     link.setAttribute('href', linkUrl);
     link.setAttribute(this._hoverLinkAttr, '');
 
-    // prepend link to heading
-    heading.insertBefore(link, heading.firstChild);
+    // based on link position option
+    if(this._hoverLinkPosition === 'before') {
+      // prepend link, or
+      heading.insertBefore(link, heading.firstChild);
+    }
+    else {
+      // append link
+      heading.appendChild(link);
+    }
   }
 }
 
