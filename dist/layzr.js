@@ -21,18 +21,20 @@ function Layzr(options) {
   // debounce
   this._lastScroll = 0;
   this._ticking    = false;
+  this._scrollTimeout = false;
 
   // options
   options = options || {};
 
-  this._optionsContainer  = document.querySelector(options.container) || window;
-  this._optionsSelector   = options.selector || '[data-layzr]';
-  this._optionsAttr       = options.attr || 'data-layzr';
-  this._optionsAttrRetina = options.retinaAttr || 'data-layzr-retina';
-  this._optionsAttrBg     = options.bgAttr || 'data-layzr-bg';
-  this._optionsAttrHidden = options.hiddenAttr || 'data-layzr-hidden';
-  this._optionsThreshold  = options.threshold || 0;
-  this._optionsCallback   = options.callback || null;
+  this._optionsContainer     = document.querySelector(options.container) || window;
+  this._optionsSelector      = options.selector || '[data-layzr]';
+  this._optionsAttr          = options.attr || 'data-layzr';
+  this._optionsAttrRetina    = options.retinaAttr || 'data-layzr-retina';
+  this._optionsAttrBg        = options.bgAttr || 'data-layzr-bg';
+  this._optionsAttrHidden    = options.hiddenAttr || 'data-layzr-hidden';
+  this._optionsThreshold     = options.threshold || 0;
+  this._optionsCallback      = options.callback || null;
+  this._optionsScrollTimeout = options.scrollTimeout || false;
 
   // properties
   this._retina  = window.devicePixelRatio > 1;
@@ -56,7 +58,20 @@ Layzr.prototype._requestScroll = function() {
     this._lastScroll = this._optionsContainer.scrollTop + this._getOffset(this._optionsContainer);
   }
 
-  this._requestTick();
+  if(this._optionsScrollTimeout === false) {
+    this._requestTick();
+  }
+  else {
+    if(this._scrollTimeout !== false) {
+      clearTimeout(this._scrollTimeout);
+    }
+
+    var self = this;
+    this._scrollTimeout = setTimeout(function() {
+      self._scrollTimeout = false;
+      self._requestTick();
+    }, this._optionsScrollTimeout);
+  }
 };
 
 Layzr.prototype._requestTick = function() {

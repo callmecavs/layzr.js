@@ -110,6 +110,7 @@ var layzr = new Layzr({
   bgAttr: 'data-layzr-bg',
   hiddenAttr: 'data-layzr-hidden',
   threshold: 0,
+  scrollTimeout: false,
   callback: null
 });
 ```
@@ -180,6 +181,18 @@ Threshold is a percentage of the viewport height - think of it as similar to the
 
 var layzr = new Layzr({
   threshold: 50
+});
+```
+
+### scrollTimeout
+
+Sets the time to wait after scrolling before loading the images in the viewport. `false` without any delay.
+
+```javascript
+// scrolling should be stopped for 250ms before loading the images
+
+var layzr = new Layzr({
+  scrollTimeout: 250
 });
 ```
 
