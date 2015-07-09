@@ -4,11 +4,17 @@
 
 A small, fast, modern, and dependency-free library for lazy loading.
 
+Lazy loading boosts page speed by deferring the loading of images until they're in (or near) the viewport. This library makes it completely painless - maximizing speed by keeping options to a minimum.
+
 * [Demo Page](http://callmecavs.github.io/layzr.js/)
 
 ## Usage
 
-Lazy loading boosts page speed by deferring the loading of images until they're in (or near) the viewport. This library makes it completely painless - maximizing speed by keeping options to a minimum.
+Follow these steps:
+
+1. [Install](https://github.com/callmecavs/layzr.js#install)
+2. [Image Setup](https://github.com/callmecavs/layzr.js#image-setup)
+3. [Instance Creation](https://github.com/callmecavs/layzr.js#instance-creation)
 
 ### Install
 
