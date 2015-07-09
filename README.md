@@ -42,6 +42,18 @@ In the examples below, replace `{version}` with your desired version. Refer to t
 <script src="https://cdn.jsdelivr.net/layzr.js/{version}/layzr.min.js"></script>
 ```
 
+### Instance Creation
+
+After loading the script, create a new instance, and that's it!
+
+```html
+<script>
+  var layzr = new Layzr();
+</script>
+```
+
+See the possible [options](#options) for more details.
+
 ### Image Setup
 
 For each `img` and/or `iframe` you want to lazy load, put the `src` in the `data-layzr` attribute.
@@ -92,16 +104,6 @@ Removing this attribute _will not load the image_ - the user will still need to 
 ```html
 <img data-layzr="image/source" data-layzr-hidden>
 ```
-
-### Instance Creation
-
-Create a new instance, and that's it!
-
-```javascript
-var layzr = new Layzr();
-```
-
-Documentation for all options follows:
 
 ## Options
 
