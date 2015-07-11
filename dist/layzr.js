@@ -150,13 +150,6 @@ Layzr.prototype._reveal = function(node) {
   node.removeAttribute(this._optionsAttrHidden);
 };
 
-Layzr.prototype._isVisiable = function(elem) {
-  // Support: Opera <= 12.12
-  // Opera reports offsetWidths and offsetHeights less than zero on some elements
-  return elem.offsetWidth <= 0 && elem.offsetHeight <= 0;
-}
-
-
 Layzr.prototype.query = function() {
   //just focus the image that in the container
   var container = this._optionsContainer === window ? document : this._optionsContainer
