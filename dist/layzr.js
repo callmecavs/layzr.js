@@ -150,6 +150,12 @@ Layzr.prototype._reveal = function(node) {
   node.removeAttribute(this._optionsAttrHidden);
 };
 
+Layzr.prototype._isVisiable = function(elem) {
+  // Support: Opera <= 12.12
+  // Opera reports offsetWidths and offsetHeights less than zero on some elements
+  return elem.offsetWidth <= 0 && elem.offsetHeight <= 0;
+}
+
 
 Layzr.prototype.query = function() {
   //just focus the image that in the container
@@ -157,6 +163,11 @@ Layzr.prototype.query = function() {
   return container.querySelectorAll(this._optionsSelector);
 };
 
+Layzr.prototype._visiable = function(node) {
+  // Support: Opera <= 12.12
+  // Opera reports offsetWidths and offsetHeights less than zero on some elements
+  return !(node.offsetWidth <= 0 && node.offsetHeight <= 0);
+}
 
 Layzr.prototype.update = function() {
 
@@ -168,13 +179,13 @@ Layzr.prototype.update = function() {
     var node = nodes[i];
 
     // check if node has mandatory attribute
+    // check if node is visiable
     // check if node in viewport
-    if(node.hasAttribute(this._optionsAttr) && this._inViewport(node)) {
+    if(node.hasAttribute(this._optionsAttr) && this._visiable(node) && this._inViewport(node)) {
       // reveal node
       this._reveal(node);
     }
   }
-
   // allow for more animation frames
   this._ticking = false;
 };
