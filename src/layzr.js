@@ -1,6 +1,5 @@
 'use strict';
 
-// CONSTRUCTOR
 //Polyfill for requestAnimationFrame for ie8/9 support
 window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
@@ -11,6 +10,7 @@ window.requestAnimFrame = (function(){
           };
 })();
 
+// CONSTRUCTOR
 function Layzr(options) {
   // debounce
   this._lastScroll = 0;
