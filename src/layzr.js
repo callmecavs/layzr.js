@@ -1,7 +1,16 @@
 'use strict';
 
-// CONSTRUCTOR
+//Polyfill for requestAnimationFrame for ie8/9 support
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
 
+// CONSTRUCTOR
 function Layzr(options) {
   // debounce
   this._lastScroll = 0;
@@ -46,7 +55,7 @@ Layzr.prototype._requestScroll = function() {
 
 Layzr.prototype._requestTick = function() {
   if(!this._ticking) {
-    requestAnimationFrame(this.update.bind(this));
+    requestAnimFrame(this.update.bind(this));
     this._ticking = true;
   }
 };
