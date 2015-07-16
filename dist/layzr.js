@@ -41,6 +41,9 @@ function Layzr(options) {
   // nodelist
   this._nodes = document.querySelectorAll(this._optionsSelector);
 
+  // scroll and resize handler
+  this._handlerBind = this._requestScroll.bind(this);
+
   // call to create
   this._create();
 }
@@ -84,19 +87,17 @@ Layzr.prototype._getContainerHeight = function() {
 
 Layzr.prototype._create = function() {
   // fire scroll event once
-  this._requestScroll();
+  this._handlerBind();
 
   // bind scroll and resize event
-  this._optionsContainer.addEventListener('scroll', this._requestScroll.bind(this), false);
-  this._optionsContainer.addEventListener('resize', this._requestScroll.bind(this), false);
+  this._optionsContainer.addEventListener('scroll', this._handlerBind, false);
+  this._optionsContainer.addEventListener('resize', this._handlerBind, false);
 };
 
 Layzr.prototype._destroy = function() {
-  // possibly remove attributes, and set all sources?
-
   // unbind scroll and resize event
-  this._optionsContainer.removeEventListener('scroll', this._requestScroll.bind(this), false);
-  this._optionsContainer.removeEventListener('resize', this._requestScroll.bind(this), false);
+  this._optionsContainer.removeEventListener('scroll', this._handlerBind, false);
+  this._optionsContainer.removeEventListener('resize', this._handlerBind, false);
 };
 
 Layzr.prototype._inViewport = function(node) {
