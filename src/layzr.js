@@ -3,12 +3,11 @@ import knot from 'knot.js'
 export default (options = {}) => {
   // options
 
-  const selector   = options.selector || '[data-layzr]'
-  const attr       = options.attr || 'data-layzr'
-  const attrRetina = options.attrRetina || 'data-layzr-retina'
-  const attrBg     = options.attrBg || 'data-layzr-bg'
-  const threshold  = options.threshold || 0
-  const callback   = options.callback
+  const selector  = options.selector || '[data-layzr]'
+  const src       = options.src || 'data-src'
+  const srcset    = options.srcset || 'data-srcset'
+  const threshold = options.threshold || 0
+  const callback  = options.callback
 
   // cache
 
@@ -64,26 +63,36 @@ export default (options = {}) => {
   // source helpers
 
   function getSource(node) {
+    // check for srcset support
+    // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
+    if('srcset' in createElement('img')) {
+      return node.getAttribute('data-srcset')
+    }
+
+
+    // const source = node.currentSrc ||
+    // return node.currentSrc ||
+
     // IE10 doesn't support devicePixelRatio :facepalm:
     // https://msdn.microsoft.com/en-us/library/dn265030(v=vs.85).aspx
-    const dpr = window.devicePixelRatio || window.screen.deviceXDPI / window.screen.logicalXDPI
+    // const dpr = window.devicePixelRatio || window.screen.deviceXDPI / window.screen.logicalXDPI
 
-    const preferred = dpr > 1
-      ? node.hasAttribute(attrRetina) ? attrRetina : attr
-      : attr
+    // const attribute = dpr > 1
+    //   ? node.hasAttribute(attrRetina) ? attrRetina : attr
+    //   : attr
   }
 
-  function setSource(node) {
-    const source = getSource(node)
-
-    node.hasAttribute(attrBg)
-      ? node.style.backgroundImage = `url("${ source }")`
-      : node.setAttribute('src', source)
-
-    ;[attr, attrRetina, attrBg].forEach(attr => node.removeAttribute(attr))
-
-    instance.emit('set', node)
-  }
+  // function setSource(node) {
+  //   const source = getSource(node)
+  //
+  //   node.hasAttribute(attrBg)
+  //     ? node.style.backgroundImage = `url("${ source }")`
+  //     : node.setAttribute('src', source)
+  //
+  //   ;[attr, attrRetina, attrBg].forEach(attr => node.removeAttribute(attr))
+  //
+  //   instance.emit('set', node)
+  // }
 
   // API
 
@@ -99,7 +108,7 @@ export default (options = {}) => {
 
   function check() {
     elements.forEach(element => {
-      inViewport(element) && setSource(element)
+      // inViewport(element) && setSource(element)
     })
 
     ticking = false
