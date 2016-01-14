@@ -99,22 +99,30 @@ export default (options = {}) => {
   function start() {
     window.addEventListener('scroll', requestScroll)
     window.addEventListener('resize', requestScroll)
+
+    return this
   }
 
   function stop() {
     window.removeEventListener('scroll', requestScroll)
     window.removeEventListener('resize', requestScroll)
+
+    return this
   }
 
   function check() {
     elements.forEach(element => {
-      // inViewport(element) && setSource(element)
+      inViewport(element) && setSource(element)
     })
 
     ticking = false
+
+    return this
   }
 
   function update() {
     elements = [...document.querySelectorAll(selector)]
+
+    return this
   }
 }
