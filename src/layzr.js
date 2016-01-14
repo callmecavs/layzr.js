@@ -63,8 +63,16 @@ export default (options = {}) => {
 
   // load helper
 
-  function load() {
+  function load(node) {
+    const source = node.getAttribute(attrRetina) || node.getAttribute(attr)
 
+    node.hasAttribute(attrBg)
+      ? node.style.backgroundImage = `url("${ source }")`
+      : node.setAttribute('src', source)
+
+    ;[attr, attrRetina, attrBg].forEach(attr => node.removeAttribute(attr))
+
+    instance.emit('loaded', node)
   }
 
   // API
