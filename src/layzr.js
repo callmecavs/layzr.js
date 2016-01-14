@@ -1,11 +1,6 @@
 import knot from 'knot.js'
 
 export default (options = {}) => {
-  // cache
-
-  let prevLoc
-  let ticking
-
   // options
 
   const selector   = options.selector || '[data-layzr]'
@@ -15,11 +10,18 @@ export default (options = {}) => {
   const threshold  = options.threshold || 0
   const callback   = options.callback
 
+  // cache
+
+  let elements
+  let prevLoc
+  let ticking
+
   // instance
 
   const instance = knot({
     start: start,
     stop: stop,
+    check: check,
     update: update
   })
 
@@ -59,6 +61,12 @@ export default (options = {}) => {
     const threshold = (threshold * 100) / winHeight
   }
 
+  // load helper
+
+  function load() {
+
+  }
+
   // API
 
   function start() {
@@ -71,8 +79,15 @@ export default (options = {}) => {
     window.removeEventListener('resize', requestScroll)
   }
 
-  function update() {
+  function check() {
+    elements.forEach(element => {
+      inViewport(element) && load(element)
+    })
 
     ticking = false
+  }
+
+  function update() {
+    elements = [...document.querySelectorAll(selector)]
   }
 }
