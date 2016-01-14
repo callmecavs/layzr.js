@@ -61,10 +61,20 @@ export default (options = {}) => {
     const threshold = (threshold * 100) / winHeight
   }
 
-  // load helper
+  // source helpers
 
-  function load(node) {
-    const source = node.getAttribute(attrRetina) || node.getAttribute(attr)
+  function getSource(node) {
+    // IE10 doesn't support devicePixelRatio :facepalm:
+    // https://msdn.microsoft.com/en-us/library/dn265030(v=vs.85).aspx
+    const dpr = window.devicePixelRatio || window.screen.deviceXDPI / window.screen.logicalXDPI
+
+    const preferred = dpr > 1
+      ? node.hasAttribute(attrRetina) ? attrRetina : attr
+      : attr
+  }
+
+  function setSource(node) {
+    const source = getSource(node)
 
     node.hasAttribute(attrBg)
       ? node.style.backgroundImage = `url("${ source }")`
@@ -72,7 +82,7 @@ export default (options = {}) => {
 
     ;[attr, attrRetina, attrBg].forEach(attr => node.removeAttribute(attr))
 
-    instance.emit('loaded', node)
+    instance.emit('set', node)
   }
 
   // API
@@ -89,7 +99,7 @@ export default (options = {}) => {
 
   function check() {
     elements.forEach(element => {
-      inViewport(element) && load(element)
+      inViewport(element) && setSource(element)
     })
 
     ticking = false
