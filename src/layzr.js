@@ -9,6 +9,11 @@ export default (options = {}) => {
   const threshold = options.threshold || 0
   const callback  = options.callback
 
+  // feature detection
+  // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
+
+  const supportsSrcset = 'srcset' in document.createElement('img')
+
   // cache
 
   let elements
@@ -66,11 +71,10 @@ export default (options = {}) => {
   // source helpers
 
   function setSource(node) {
-    // TODO: abstract this
     // check for srcset support
-    // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
-    if('srcset' in document.createElement('img')) {
-      return node.setAttribute('srcset', node.getAttribute('data-srcset'))
+    if(supportsSrcset) {
+      node.setAttribute('srcset', node.getAttribute('data-srcset'))
+      return
     }
   }
 
