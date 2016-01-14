@@ -1,17 +1,22 @@
 <html>
   <head>
     <style>
-      body { height: 10000px; }
+      body {
+        padding-top: 50vh;
+        height: 10000px;
+      }
     </style>
   </head>
   <body>
-    <img id="test" src="/default.jpg" srcset="/small.jpg 500w, /medium.jpg 1000w, /large.jpg 2000w">
+    <img id="test" data-layzr data-src="/default.jpg" data-srcset="/small.jpg 500w, /medium.jpg 1000w, /large.jpg 2000w">
 
     <script src="layzr.min.js"></script>
     <script>
       var instance = Layzr()
 
-      instance.start()
+      instance
+        .update()
+        .start()
     </script>
   </body>
 </html>
