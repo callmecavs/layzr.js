@@ -57,42 +57,22 @@ export default (options = {}) => {
     const nodeTop = getOffset(node)
     const nodeBot = nodeTop + node.offsetHeight
 
-    const threshold = (threshold * 100) / winHeight
+    const offset = (threshold * 100) / winHeight
+
+    return nodeBot >= viewTop - offset
+        && nodeTop <= viewBot + offset
   }
 
   // source helpers
 
-  function getSource(node) {
+  function setSource(node) {
+    // TODO: abstract this
     // check for srcset support
     // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
-    if('srcset' in createElement('img')) {
-      return node.getAttribute('data-srcset')
+    if('srcset' in document.createElement('img')) {
+      return node.setAttribute('srcset', node.getAttribute('data-srcset'))
     }
-
-
-    // const source = node.currentSrc ||
-    // return node.currentSrc ||
-
-    // IE10 doesn't support devicePixelRatio :facepalm:
-    // https://msdn.microsoft.com/en-us/library/dn265030(v=vs.85).aspx
-    // const dpr = window.devicePixelRatio || window.screen.deviceXDPI / window.screen.logicalXDPI
-
-    // const attribute = dpr > 1
-    //   ? node.hasAttribute(attrRetina) ? attrRetina : attr
-    //   : attr
   }
-
-  // function setSource(node) {
-  //   const source = getSource(node)
-  //
-  //   node.hasAttribute(attrBg)
-  //     ? node.style.backgroundImage = `url("${ source }")`
-  //     : node.setAttribute('src', source)
-  //
-  //   ;[attr, attrRetina, attrBg].forEach(attr => node.removeAttribute(attr))
-  //
-  //   instance.emit('set', node)
-  // }
 
   // API
 
