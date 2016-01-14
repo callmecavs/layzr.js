@@ -36,4 +36,25 @@ export default (options = {}) => {
       ticking = true
     }
   }
+
+  // offset helper
+
+  function getOffset(node) {
+    return node.getBoundingClientRect().top + prevLoc
+  }
+
+  // in viewport helper
+
+  function inViewport(node) {
+    const winHeight = window.innerHeight
+
+    const viewTop = prevLoc
+    const viewBot = viewTop + winHeight
+
+    const nodeTop = getOffset(node)
+    const nodeBot = nodeTop + node.offsetHeight
+
+    const threshold = (threshold * 100) / winHeight
+  }
+
 }
