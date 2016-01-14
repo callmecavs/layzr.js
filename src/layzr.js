@@ -35,7 +35,7 @@ export default (options = {}) => {
 
   function requestFrame() {
     if(!ticking) {
-      requestAnimationFrame(() => update())
+      requestAnimationFrame(() => check())
       ticking = true
     }
   }
