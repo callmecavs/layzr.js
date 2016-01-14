@@ -18,7 +18,9 @@ export default (options = {}) => {
   // instance
 
   const instance = knot({
-
+    start: start,
+    stop: stop,
+    update: update
   })
 
   return instance
@@ -57,4 +59,20 @@ export default (options = {}) => {
     const threshold = (threshold * 100) / winHeight
   }
 
+  // API
+
+  function start() {
+    window.addEventListener('scroll', requestScroll)
+    window.addEventListener('resize', requestScroll)
+  }
+
+  function stop() {
+    window.removeEventListener('scroll', requestScroll)
+    window.removeEventListener('resize', requestScroll)
+  }
+
+  function update() {
+
+    ticking = false
+  }
 }
