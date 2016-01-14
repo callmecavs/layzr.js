@@ -1,11 +1,13 @@
 import knot from 'knot.js'
 
 export default (options = {}) => {
+  // cache
+
   let prevLoc
   let ticking
 
   // options
-  const container  = document.querySelector(options.container) || window
+
   const selector   = options.selector || '[data-layzr]'
   const attr       = options.attr || 'data-layzr'
   const attrRetina = options.attrRetina || 'data-layzr-retina'
@@ -20,4 +22,18 @@ export default (options = {}) => {
   })
 
   return instance
+
+  // debounce helpers
+
+  function requestScroll() {
+    prevLoc = window.scrollY || window.pageYOffset
+    requestFrame()
+  }
+
+  function requestFrame() {
+    if(!ticking) {
+      requestAnimationFrame(() => update())
+      ticking = true
+    }
+  }
 }
