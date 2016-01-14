@@ -1,4 +1,4 @@
 .DS_Store
 node_modules
-.sass-cache
-demo.html
+*.log
+maps
