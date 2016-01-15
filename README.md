@@ -13,7 +13,8 @@ Layzr was developed with a modern JavaScript workflow in mind. To use it, it's r
 Follow these steps to get started:
 
 1. [Install](#install)
-2. [Instantiate](#instantiate)
+2. [Setup Images](#setup-images)
+3. [Instantiate](#instantiate)
 
 ## Install
 
@@ -58,6 +59,17 @@ Note the version number in the `src` attributes.
 ```html
 <script src="layzr.min.js"></script>
 ```
+
+## Setup Images
+
+To determine what source should be loaded, Layzr uses the following logic:
+
+* If the browser [supports `srcset`](http://caniuse.com/#search=srcset), and the element has the `data-srcset` attribute, use it.
+* Else, pick the source based on the browser's [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
+  a. If the screen is retina, and the element has the `data-retina` attribute, use this image as the source.
+  b. Else, use the `data-normal` attribute as the source.
+
+Note that all **attributes are configureable** via the options passed to the constructor.
 
 ## Instantiate
 
