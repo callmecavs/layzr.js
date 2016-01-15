@@ -59,6 +59,30 @@ Note the version number in the `src` attributes.
 <script src="layzr.min.js"></script>
 ```
 
+## Instantiate
+
+If necessary, import Layzr, then instantiate it.
+
+Be sure to **assign your Layzr instance to a variable**. Using your instance, you can:
+
+* start and stop the event listeners
+* handle dynamically added elements
+* bind callback handlers
+
+```es6
+// import Layzr, if installed using npm
+import layzr from 'layzr.js'
+
+// create an instance
+// default settings shown below
+const instance = layzr({
+  normal: 'data-normal',
+  retina: 'data-retina',
+  srcset: 'data-srcset',
+  threshold: 0
+})
+```
+
 ## Browser Support
 
 Layzr depends on the following browser APIs:
