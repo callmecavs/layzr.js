@@ -6,9 +6,9 @@ A small, fast, and modern library for lazy loading images.
 
 * [Demo Page](http://callmecavs.github.io/layzr.js/)
 
-## Usage
+## Getting Started
 
-Layzr was developed with a modern JavaScript workflow in mind. To use it, it's recommended you have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, check out [outset](https://github.com/callmecavs/outset).
+Layzr was developed with a modern JavaScript workflow in mind. Though not required to use Layzr, it's convenient to have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, check out [outset](https://github.com/callmecavs/outset).
 
 Follow these steps to get started:
 
