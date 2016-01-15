@@ -3,16 +3,17 @@ import knot from 'knot.js'
 export default (options = {}) => {
   // options
 
-  const selector  = options.selector || '[data-layzr]'
-  const src       = options.src || 'data-src'
-  const srcset    = options.srcset || 'data-srcset'
-  const threshold = options.threshold || 0
-  const callback  = options.callback
+  const settings = {
+    selector: options.selector || '[data-layzr]',
+    src: options.src || 'data-src',
+    srcset: options.srcset || 'data-srcset',
+    threshold: options.threshold || 0
+  }
 
   // feature detection
   // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
 
-  const supportsSrcset = 'srcset' in document.createElement('img')
+  const srcset = 'srcset' in document.createElement('img')
 
   // cache
 
@@ -62,7 +63,7 @@ export default (options = {}) => {
     const nodeTop = getOffset(node)
     const nodeBot = nodeTop + node.offsetHeight
 
-    const offset = (threshold * 100) / winHeight
+    const offset = (settings.threshold * 100) / winHeight
 
     return nodeBot >= viewTop - offset
         && nodeTop <= viewBot + offset
@@ -105,7 +106,7 @@ export default (options = {}) => {
   }
 
   function update() {
-    elements = [...document.querySelectorAll(selector)]
+    elements = [...document.querySelectorAll(settings.selector)]
 
     return this
   }
