@@ -29,7 +29,7 @@ export default (options = {}) => {
 
   // cache
 
-  let elements
+  let nodes
   let prevLoc
   let ticking
 
@@ -96,12 +96,12 @@ export default (options = {}) => {
     // emit event, passing along the node
     instance.emit('sourced', node)
 
-    // cleanup element
+    // cleanup node
     node.removeAttribute(settings.normal)
     node.removeAttribute(settings.retina)
     node.removeAttribute(settings.srcset)
 
-    // update remaining elements
+    // update remaining nodes
     update()
   }
 
@@ -118,8 +118,8 @@ export default (options = {}) => {
   }
 
   function check() {
-    elements.forEach(element => {
-      inViewport(element) && setSource(element)
+    nodes.forEach(node => {
+      inViewport(node) && setSource(node)
     })
 
     ticking = false
@@ -127,7 +127,7 @@ export default (options = {}) => {
   }
 
   function update() {
-    elements = [...document.querySelectorAll(`[${ settings.normal }]`)]
+    nodes = [...document.querySelectorAll(`[${ settings.normal }]`)]
     return this
   }
 }
