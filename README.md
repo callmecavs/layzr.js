@@ -130,15 +130,15 @@ Layzr instances are extended with [Knot.js](https://github.com/callmecavs/knot.j
 
 Layzr emits the following events:
 
-* [before:src](#beforesrc)
-* [after:src](#aftersrc)
+* [src:before](#srcbefore)
+* [src:after](#srcafter)
 
-### before:src
+### src:before
 
-This event is emitted immediately **before** an image source is set. The image node is passed to the event handler.
+This event is emitted immediately _before an image source is set_. The image node is passed to the event handler.
 
 ```es6
-instance.on('before:src', (element) => {
+instance.on('src:before', (element) => {
   // 'this' is your Layzr instance
   // 'element' is the image node
   // ...
@@ -147,24 +147,24 @@ instance.on('before:src', (element) => {
 
 Load event handlers should be attached using this event.
 
-Note the [caveats](https://api.jquery.com/load-event/) associated with image loading before proceeding.
+Note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
 
 ```es6
 // before the image src is set, add a load event listener
 
-instance.on('before:src', (element) => {
+instance.on('src:before', (element) => {
   element.addEventListener('load', event => {
     // image has loaded...
   })
 })
 ```
 
-### after:src
+### src:after
 
-This event is emitted immediately **after an image source is set**. The image node is passed to the event handler.
+This event is emitted immediately _after an image source is set_. The image node is passed to the event handler.
 
 ```es6
-instance.on('after:src', (element) => {
+instance.on('src:after', (element) => {
   // 'this' is your Layzr instance
   // 'element' is the image node
   // ...
