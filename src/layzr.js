@@ -5,7 +5,8 @@ export default (options = {}) => {
 
   const settings = {
     selector: options.selector || '[data-layzr]',
-    src: options.src || 'data-src',
+    normal: options.normal || 'data-normal',
+    retina: options.retina || 'data-retina',
     srcset: options.srcset || 'data-srcset',
     threshold: options.threshold || 0
   }
@@ -21,6 +22,11 @@ export default (options = {}) => {
   // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
 
   const srcset = 'srcset' in document.createElement('img')
+
+  // device pixel ratio
+  // not supported in IE10 - https://msdn.microsoft.com/en-us/library/dn265030(v=vs.85).aspx
+
+  const dpr = window.devicePixelRatio || window.screen.deviceXDPI / window.screen.logicalXDPI
 
   // cache
 
@@ -76,13 +82,16 @@ export default (options = {}) => {
         && nodeTop <= viewBot + offset
   }
 
-  // source helpers
+  // source helper
+  // use srcset if available, otherwise fallback to pixel density
 
   function setSource(node) {
-    // check for srcset support and attribute
     if(srcset && node.hasAttribute(settings.srcset)) {
       node.setAttribute('srcset', node.getAttribute(settings.srcset))
-      return
+    }
+    else {
+      const retina = dpr > 1 && node.getAttribute(settings.retina)
+      node.setAttribute('src', retina || node.getAttribute(settings.normal))
     }
   }
 
