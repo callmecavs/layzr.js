@@ -12,8 +12,48 @@ Layzr was developed with a modern JavaScript workflow in mind. To use it, it's r
 
 Follow these steps to get started:
 
-* [Install](#install)
-* [Instantiate](#instantiate)
+1. [Install](#install)
+2. [Instantiate](#instantiate)
+
+## Install
+
+Choose one of the following installation options, based on what best suits your project and environment.
+
+* [npm](#npm)
+* [CDN](#cdn)
+* [Download](#download)
+
+### npm
+
+Using NPM, install Layzr, and add it to your `package.json` dependencies.
+
+```
+$ npm install layzr.js --save
+```
+
+### CDN
+
+Note the version number in the `src` below. For more information regarding versions, refer to the [releases](https://github.com/callmecavs/layzr.js/releases) page.
+
+#### [`jsDelivr`](http://www.jsdelivr.com/projects/layzr.js)
+
+```
+<script src="https://cdn.jsdelivr.net/layzr.js/2.0.0/layzr.min.js"></script>
+```
+
+#### [`cdnjs`](https://cdnjs.com/libraries/layzr.js)
+
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/2.0.0/layzr.min.js"></script>
+```
+
+### Download
+
+[Download](https://github.com/callmecavs/layzr.js/archive/master.zip) the latest, and add a script tag pointing to the `dist` file.
+
+```
+<script src="layzr.min.js"></script>
+```
 
 ## Browser Support
 
