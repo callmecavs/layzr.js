@@ -35,15 +35,15 @@ $ npm install layzr.js --save
 
 Note the version number in the `src` below. For more information regarding versions, refer to the [releases](https://github.com/callmecavs/layzr.js/releases) page.
 
-#### [`jsDelivr`](http://www.jsdelivr.com/projects/layzr.js)
+* [`jsDelivr`](http://www.jsdelivr.com/projects/layzr.js)
 
-```
+```html
 <script src="https://cdn.jsdelivr.net/layzr.js/2.0.0/layzr.min.js"></script>
 ```
 
-#### [`cdnjs`](https://cdnjs.com/libraries/layzr.js)
+* [`cdnjs`](https://cdnjs.com/libraries/layzr.js)
 
-```
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/2.0.0/layzr.min.js"></script>
 ```
 
@@ -51,7 +51,7 @@ Note the version number in the `src` below. For more information regarding versi
 
 [Download](https://github.com/callmecavs/layzr.js/archive/master.zip) the latest, and add a script tag pointing to the `dist` file.
 
-```
+```html
 <script src="layzr.min.js"></script>
 ```
 
