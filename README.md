@@ -23,7 +23,7 @@ Choose one of the following installation options, based on what best suits your 
 * [CDN](#cdn)
 * [Download](#download)
 
-Refer to the [releases](https://github.com/callmecavs/layzr.js/releases) page for more version information.
+Refer to the [releases](https://github.com/callmecavs/layzr.js/releases) page for version specific information.
 
 ### npm
 
@@ -35,7 +35,9 @@ $ npm install layzr.js --save
 
 ### CDN
 
-Copy and paste one of the following `<script>` tags. Note the version number in the `src` attribute.
+Copy and paste one of the following `<script>` tags.
+
+Note the version number in the `src` attributes.
 
 #### [jsDelivr](http://www.jsdelivr.com/projects/layzr.js)
 
@@ -51,7 +53,7 @@ Copy and paste one of the following `<script>` tags. Note the version number in 
 
 ### Download
 
-[Download](https://github.com/callmecavs/layzr.js/archive/master.zip) the latest, and load the script in the `dist` folder.
+[Download](https://github.com/callmecavs/layzr.js/archive/master.zip) the latest version, and load the script in the `dist` folder.
 
 ```html
 <script src="layzr.min.js"></script>
