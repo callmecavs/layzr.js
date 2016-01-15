@@ -29,9 +29,11 @@ export default (options = {}) => {
 
   // cache
 
-  let nodes
   let prevLoc
   let ticking
+
+  let nodes
+  let windowHeight
 
   // instance
 
@@ -67,15 +69,13 @@ export default (options = {}) => {
   // in viewport helper
 
   function inViewport(node) {
-    const winHeight = window.innerHeight
-
     const viewTop = prevLoc
-    const viewBot = viewTop + winHeight
+    const viewBot = viewTop + windowHeight
 
     const nodeTop = getOffset(node)
     const nodeBot = nodeTop + node.offsetHeight
 
-    const offset = (settings.threshold * 100) / winHeight
+    const offset = (settings.threshold * 100) / windowHeight
 
     return nodeBot >= viewTop - offset
         && nodeTop <= viewBot + offset
@@ -119,7 +119,10 @@ export default (options = {}) => {
   }
 
   function check() {
+    windowHeight = window.innerHeight
+
     nodes.forEach(node => inViewport(node) && setSource(node))
+
     ticking = false
     return this
   }
