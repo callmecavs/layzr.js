@@ -97,7 +97,7 @@ export default (options = {}) => {
     instance.emit('sourced', node)
 
     // cleanup node
-    [settings.normal, settings.retina, settings.srcsrc].forEach(attribute => node.removeAttribute(attribute))
+    ;[settings.normal, settings.retina, settings.srcsrc].forEach(attribute => node.removeAttribute(attribute))
   }
 
   // API
