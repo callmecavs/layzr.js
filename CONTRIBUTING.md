@@ -1,10 +1,10 @@
 # Conduct
 
-Follow the [golden rule](https://en.wikipedia.org/wiki/Golden_Rule). Be respectful, even to those that are disrespectful. Please understand that no one is getting paid to make open source, and everyone is trying the best they can.
+Follow the [golden rule](https://en.wikipedia.org/wiki/Golden_Rule). Be respectful, even to those that are disrespectful. Please understand that no one is getting paid to develop/maintain open source software.
 
 # Questions
 
-Please ask all questions in the [Gitter chatroom](https://gitter.im/callmecavs/layzr.js). Registering is simple via GitHub authentication.
+Please ask all questions in the [Gitter chatroom](https://gitter.im/callmecavs/layzr.js). Registration is simple via GitHub authentication.
 
 # Issues
 
