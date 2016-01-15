@@ -268,7 +268,7 @@ Update the elements Layzr is checking.
 instance.update()
 ```
 
-**Dynamically added elements** should be used to handled using this method.
+**Dynamically added elements** should be handled using this method.
 
 ```es6
 // AJAX request to get new HTML
