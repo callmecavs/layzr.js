@@ -62,33 +62,36 @@ Note the version number in the `src` attributes.
 
 ## Setup Images
 
-In browsers that [support `srcset`](http://caniuse.com/#search=srcset), it will be used to pick the source. In browsers that don't, the normal or retina source will be chosen based on the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
+Layzr intelligently chooses the best source available, **based on the image's data attributes, and browser feature detection**.
 
-To set those sources, add the following attributes to the images:
+* In browsers that [support `srcset`](http://caniuse.com/#search=srcset), if available, it will be used to determine the source.
+* In browsers that don't, the normal or retina source will be chosen based on availability and the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
 
-1. **Required**: [`data-normal`](#normal)
-2. **Optional**: [`data-retina`](#retina)
-3. **Optional**: [`data-srcset`](#source-set)
+To indicate potential sources, add the following attributes to your images:
 
-### Normal
+1. **Required**: [`data-normal`](#data-normal)
+2. **Optional**: [`data-retina`](#data-retina)
+3. **Optional**: [`data-srcset`](#data-source-set)
 
-Put the **normal resolution** `src` in the `data-normal` attribute.
+### data-normal
+
+Put the **normal resolution** source in the `data-normal` attribute.
 
 ```html
 <img data-normal="normal.jpg">
 ```
 
-### Retina
+### data-retina
 
-Put the **retina/high resolution** `src` in the `data-retina` attribute.
+Put the **retina/high resolution** source in the `data-retina` attribute.
 
 ```html
 <img data-normal="normal.jpg" data-retina="retina.jpg">
 ```
 
-### Source Set
+### data-srcset
 
-Put the **`srcset`** in the `data-srcset` attribute.
+Put the **source set** in the `data-srcset` attribute. For information on the proper syntax, read the official [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img).
 
 ```html
 <img data-normal="normal.jpg" data-retina="retina.jpg" data-srcset="small.jpg 320w, medium.jpg 768w, large.jpg 1024w">
