@@ -8,13 +8,15 @@ A small, fast, and modern library for lazy loading images.
 
 ## Getting Started
 
-Layzr was developed with a modern JavaScript workflow in mind. Though not required to use Layzr, it's convenient to have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, check out [outset](https://github.com/callmecavs/outset).
+Layzr was developed with a modern JavaScript workflow in mind. Though not required to use Layzr, it's convenient to have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, try [outset](https://github.com/callmecavs/outset).
 
-Follow these steps to get started:
+To get started, follow these steps:
 
 1. [Install](#install)
 2. [Setup Images](#setup-images)
 3. [Instantiate](#instantiate)
+4. [Review Options](#options)
+5. [Review API](#api)
 
 ## Install
 
@@ -62,7 +64,7 @@ Note the version number in the `src` attributes.
 
 ## Setup Images
 
-Layzr intelligently chooses the best source available, **based on the image's data attributes and feature detection**. Note that all **attributes are configureable** via the [options](#options) passed to the constructor.
+Layzr intelligently chooses the best source available, **based on the image's data attributes and feature detection**. Note that _all attributes are configureable_ via the [options](#options) passed to the constructor.
 
 * In browsers that [support `srcset`](http://caniuse.com/#search=srcset), if available, it will be used to determine the source.
 * In browsers that don't, the normal or retina source will be chosen based on availability and the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
@@ -75,7 +77,7 @@ To indicate potential sources, add the following attributes to your images:
 
 ### data-normal
 
-Put the **normal resolution** source in the `data-normal` attribute.
+Put the _normal resolution_ source in the `data-normal` attribute.
 
 ```html
 <img data-normal="normal.jpg">
@@ -83,7 +85,7 @@ Put the **normal resolution** source in the `data-normal` attribute.
 
 ### data-retina
 
-Put the **retina/high resolution** source in the `data-retina` attribute.
+Put the _retina/high resolution_ source in the `data-retina` attribute.
 
 ```html
 <img data-normal="normal.jpg" data-retina="retina.jpg">
@@ -91,7 +93,9 @@ Put the **retina/high resolution** source in the `data-retina` attribute.
 
 ### data-srcset
 
-Put the **source set** in the `data-srcset` attribute. For information on the proper syntax, read the official [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img).
+Put the _source set_ in the `data-srcset` attribute.
+
+For information on the proper syntax, read the official [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img).
 
 ```html
 <img data-normal="normal.jpg" data-retina="retina.jpg" data-srcset="small.jpg 320w, medium.jpg 768w, large.jpg 1024w">
@@ -99,7 +103,7 @@ Put the **source set** in the `data-srcset` attribute. For information on the pr
 
 ## Instantiate
 
-If necessary, import Layzr. Then, create an instance, passing in your options.
+If necessary, import Layzr. Then, create an instance, passing in your [options](#options).
 
 Be sure to **assign your Layzr instance to a variable**. Using your instance, you can:
 
@@ -113,8 +117,17 @@ Be sure to **assign your Layzr instance to a variable**. Using your instance, yo
 import Layzr from 'layzr.js'
 
 // create an instance
-// default options shown below
 
+const instance = Layzr({
+  // options...
+})
+```
+
+## Options
+
+Default options are shown below:
+
+```es6
 const instance = Layzr({
   normal: 'data-normal',
   retina: 'data-retina',
@@ -122,6 +135,50 @@ const instance = Layzr({
   threshold: 0
 })
 ```
+
+### normal
+
+Customize the attribute the normal resolution source is taken from.
+
+```es6
+const instance = Layzr({
+  normal: 'data-normal'
+})
+```
+
+### retina
+
+Customize the attribute the retina resolution source is taken from.
+
+```es6
+const instance = Layzr({
+  retina: 'data-retina'
+})
+```
+
+### srcset
+
+Customize the attribute the source set is taken from.
+
+```es6
+const instance = Layzr({
+  srcset: 'data-srcset'
+})
+```
+
+### threshold
+
+Adjust when images load, relative to the viewport. _Positive values make images load sooner, negative values make images load later_.
+
+Threshold is a percentage of the viewport height, identical to the CSS `vh` unit.
+
+```es6
+const instance = Layzr({
+  threshold: 0
+})
+```
+
+## API
 
 ## Browser Support
 
