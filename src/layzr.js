@@ -10,6 +10,13 @@ export default (options = {}) => {
     threshold: options.threshold || 0
   }
 
+  // events
+
+  const events = [
+    'scroll',
+    'resize'
+  ]
+
   // feature detection
   // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
 
@@ -82,16 +89,12 @@ export default (options = {}) => {
   // API
 
   function start() {
-    window.addEventListener('scroll', requestScroll)
-    window.addEventListener('resize', requestScroll)
-
+    events.forEach(event => window.addEventListener(event, requestScroll))
     return this
   }
 
   function stop() {
-    window.removeEventListener('scroll', requestScroll)
-    window.removeEventListener('resize', requestScroll)
-
+    events.forEach(event => window.removeEventListener(event, requestScroll))
     return this
   }
 
@@ -101,13 +104,11 @@ export default (options = {}) => {
     })
 
     ticking = false
-
     return this
   }
 
   function update() {
     elements = [...document.querySelectorAll(settings.selector)]
-
     return this
   }
 }
