@@ -71,10 +71,12 @@ Be sure to **assign your Layzr instance to a variable**. Using your instance, yo
 
 ```es6
 // import Layzr (npm install only)
+
 import Layzr from 'layzr.js'
 
 // create an instance
 // default options shown below
+
 const instance = Layzr({
   normal: 'data-normal',
   retina: 'data-retina',
