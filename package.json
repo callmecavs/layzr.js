@@ -24,7 +24,7 @@
   ],
 
   "dependencies": {
-    "knot.js": "^0.2.1"
+    "knot.js": "^1.0.1"
   },
 
   "devDependencies": {
