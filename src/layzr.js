@@ -98,9 +98,6 @@ export default (options = {}) => {
 
     // cleanup node
     [settings.normal, settings.retina, settings.srcsrc].forEach(attribute => node.removeAttribute(attribute))
-
-    // update remaining nodes
-    update()
   }
 
   // API
@@ -117,7 +114,7 @@ export default (options = {}) => {
 
   function check() {
     nodes.forEach(node => {
-      inViewport(node) && setSource(node)
+      inViewport(node) && setSource(node) && update()
     })
 
     ticking = false
