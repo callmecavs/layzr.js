@@ -62,15 +62,15 @@ Note the version number in the `src` attributes.
 
 ## Setup Images
 
-In browsers that [support `srcset`](http://caniuse.com/#search=srcset), it will be used to determine the source. In browsers that don't, the normal or retina source will be chosen based on the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
+In browsers that [support `srcset`](http://caniuse.com/#search=srcset), it will be used to pick the source. In browsers that don't, the normal or retina source will be chosen based on the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
 
-To determine those sources, Layzr uses the following attributes:
+To set those sources, add the following attributes to the images:
 
-1. [**Required**: `data-normal`](#data-normal)
-2. [**Optional**: `data-retina`](#data-retina)
-3. [**Optional**: `data-srcset`](#data-srcset)
+1. **Required**: [`data-normal`](#normal)
+2. **Optional**: [`data-retina`](#retina)
+3. **Optional**: [`data-srcset`](#source-set)
 
-### `data-normal`
+### Normal
 
 Put the **normal resolution** `src` in the `data-normal` attribute.
 
@@ -78,7 +78,7 @@ Put the **normal resolution** `src` in the `data-normal` attribute.
 <img data-normal="normal.jpg">
 ```
 
-### `data-retina`
+### Retina
 
 Put the **retina/high resolution** `src` in the `data-retina` attribute.
 
@@ -86,7 +86,7 @@ Put the **retina/high resolution** `src` in the `data-retina` attribute.
 <img data-normal="normal.jpg" data-retina="retina.jpg">
 ```
 
-### `data-srcset`
+### Source Set
 
 Put the **`srcset`** in the `data-srcset` attribute.
 
