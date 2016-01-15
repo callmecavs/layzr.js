@@ -4,7 +4,6 @@ export default (options = {}) => {
   // options
 
   const settings = {
-    selector: options.selector || '[data-layzr]',
     normal: options.normal || 'data-normal',
     retina: options.retina || 'data-retina',
     srcset: options.srcset || 'data-srcset',
@@ -83,9 +82,9 @@ export default (options = {}) => {
   }
 
   // source helper
-  // use srcset if available, otherwise fallback to pixel density
 
   function setSource(node) {
+    // if available use srcset, otherwise fallback to pixel density
     if(srcset && node.hasAttribute(settings.srcset)) {
       node.setAttribute('srcset', node.getAttribute(settings.srcset))
     }
@@ -93,6 +92,17 @@ export default (options = {}) => {
       const retina = dpr > 1 && node.getAttribute(settings.retina)
       node.setAttribute('src', retina || node.getAttribute(settings.normal))
     }
+
+    // emit event
+    instance.emit('sourced', node)
+
+    // cleanup element
+    node.removeAttribute(settings.normal)
+    node.removeAttribute(settings.retina)
+    node.removeAttribute(settings.srcset)
+
+    // update remaining elements
+    update()
   }
 
   // API
@@ -117,7 +127,7 @@ export default (options = {}) => {
   }
 
   function update() {
-    elements = [...document.querySelectorAll(settings.selector)]
+    elements = [...document.querySelectorAll(`[${ settings.normal }]`)]
     return this
   }
 }
