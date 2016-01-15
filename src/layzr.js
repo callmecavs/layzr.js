@@ -84,6 +84,9 @@ export default (options = {}) => {
   // source helper
 
   function setSource(node) {
+    // emit before:src event, passing along the node
+    instance.emit('before:src', node)
+
     // use srcset, fallback to pixel density
     if(srcset && node.hasAttribute(settings.srcset)) {
       node.setAttribute('srcset', node.getAttribute(settings.srcset))
@@ -93,8 +96,8 @@ export default (options = {}) => {
       node.setAttribute('src', retina || node.getAttribute(settings.normal))
     }
 
-    // emit event, passing along the node
-    instance.emit('sourced', node)
+    // emit after:src event, passing along the node
+    instance.emit('after:src', node)
 
     // cleanup node
     ;[settings.normal, settings.retina, settings.srcset].forEach(attr => node.removeAttribute(attr))
