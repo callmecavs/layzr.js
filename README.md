@@ -64,10 +64,10 @@ Note the version number in the `src` attributes.
 
 To determine what source should be loaded, Layzr uses the following logic:
 
-* If the browser [supports `srcset`](http://caniuse.com/#search=srcset), and the element has the `data-srcset` attribute, use it.
-* Else, pick the source based on the browser's [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
-  * If the screen is retina, and the element has the `data-retina` attribute, use this image as the source.
-  * Else, use the `data-normal` attribute as the source.
+1. If the browser [supports `srcset`](http://caniuse.com/#search=srcset), and the element has the `data-srcset` attribute, use `srcset`.
+2. Else, determine the source based on the browser's [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
+  1. If the screen is retina, and the element has the `data-retina` attribute, use this attribute as the source.
+  2. Else, use the `data-normal` attribute as the source.
 
 Note that all **attributes are configureable** via the [options](#options) passed to the constructor.
 
