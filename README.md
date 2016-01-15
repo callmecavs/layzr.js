@@ -136,6 +136,8 @@ const instance = Layzr({
 })
 ```
 
+Explanation of each follows.
+
 ### normal
 
 Customize the attribute the normal resolution source is taken from.
@@ -180,6 +182,44 @@ const instance = Layzr({
 
 ## API
 
+All API methods are **chainable**, including those from the emitter.
+
+### .start()
+
+Bind the `scroll` and `resize` event handlers.
+
+```es6
+instance.start()
+```
+
+### .stop()
+
+Unbind the `scroll` and `resize` event handlers.
+
+```es6
+instance.stop()
+```
+
+### .check()
+
+Manually check if elements are in the viewport.
+
+This method is called while the window is scrolled or resized.
+
+```es6
+instance.check()
+```
+
+### .update()
+
+Handle dynamically added elements.
+
+This method updates the elements Layzr is checking.
+
+```es6
+instance.update()
+```
+
 ## Browser Support
 
 Layzr depends on the following browser APIs:
@@ -200,6 +240,13 @@ It supports the following natively:
 
 To support older browsers, consider including [polyfills/shims](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) for the APIs listed above. There are **no plans to include any in the library**, in the interest of file size.
 
+## Colophon
+
+* Site Design: [Chris Allen](https://dribbble.com/cp_allen)
+* Stock Photos: [Unsplash](https://unsplash.com/)
+
 ## License
 
 MIT. © 2016 Michael Cavalea
+
+[![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
