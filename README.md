@@ -73,8 +73,8 @@ Layzr intelligently chooses the best source available, **based on the image's da
 To indicate potential sources, add the following attributes to your images:
 
 1. **Required**: [`data-normal`](#data-normal)
-2. **Optional**: [`data-retina`](#data-retina)
-3. **Optional**: [`data-srcset`](#data-source-set)
+2. _Optional_: [`data-retina`](#data-retina)
+3. _Optional_: [`data-srcset`](#data-source-set)
 
 ### data-normal
 
@@ -130,8 +130,8 @@ Layzr instances are extended with [Knot.js](https://github.com/callmecavs/knot.j
 
 Layzr emits the following events:
 
-* [before:src](#before-src)
-* [after:src](#after-src)
+* [before:src](#beforesrc)
+* [after:src](#aftersrc)
 
 ### before:src
 
@@ -153,7 +153,7 @@ Note the [caveats](https://api.jquery.com/load-event/) associated with image loa
 // before the image src is set, add a load event listener
 
 instance.on('before:src', (element) => {
-  element.addEventListener('load', () => {
+  element.addEventListener('load', event => {
     // image has loaded...
   })
 })
@@ -262,12 +262,25 @@ instance.check()
 
 ### .update()
 
-Handle dynamically added elements.
-
-This method updates the elements Layzr is checking.
+Update the elements Layzr is checking.
 
 ```es6
 instance.update()
+```
+
+**Dynamically added elements** should be used to handled using this method.
+
+```es6
+// AJAX request to get new HTML
+fetch('path/to.html')
+  .then(response => response.text())
+  .then(html => {
+    // insert new elements
+    document.querySelector('.container').innerHTML(html)
+
+    // update the instance to track them
+    instance.update()
+  })
 ```
 
 ## Browser Support
