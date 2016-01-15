@@ -15,12 +15,13 @@ To get started, follow these steps:
 1. [Install](#install)
 2. [Setup Images](#setup-images)
 3. [Instantiate](#instantiate)
-4. [Review Options](#options)
-5. [Review API](#api)
+4. [Bind Callbacks](#callbacks)
+5. [Review Options](#options)
+6. [Review API](#api)
 
 ## Install
 
-Choose one of the following installation options, based on what best suits your project and environment.
+Choose from the following installation options, based on what best suits your project and environment.
 
 * [npm](#npm)
 * [CDN](#cdn)
@@ -123,6 +124,55 @@ const instance = Layzr({
 })
 ```
 
+## Callbacks
+
+Layzr instances are extended with [Knot.js](https://github.com/callmecavs/knot.js), a browser-based event emitter. Use the event emitter syntax to add and remove event handlers. Review the emitter syntax [here](https://github.com/callmecavs/knot.js#api).
+
+Layzr emits the following events:
+
+* [before:src](#before-src)
+* [after:src](#after-src)
+
+### before:src
+
+This event is emitted immediately **before** an image source is set. The image node is passed to the event handler.
+
+```es6
+instance.on('before:src', (element) => {
+  // 'this' is your Layzr instance
+  // 'element' is the image node
+  // ...
+})
+```
+
+Load event handlers should be attached using this event.
+
+Note the [caveats](https://api.jquery.com/load-event/) associated with image loading before proceeding.
+
+```es6
+// before the image src is set, add a load event listener
+
+instance.on('before:src', (element) => {
+  element.addEventListener('load', () => {
+    // image has loaded...
+  })
+})
+```
+
+### after:src
+
+This event is emitted immediately **after an image source is set**. The image node is passed to the event handler.
+
+```es6
+instance.on('after:src', (element) => {
+  // 'this' is your Layzr instance
+  // 'element' is the image node
+  // ...
+})
+```
+
+Note that the image is not necessarily done loading when this event fires.
+
 ## Options
 
 Default options are shown below:
@@ -150,7 +200,7 @@ const instance = Layzr({
 
 ### retina
 
-Customize the attribute the retina resolution source is taken from.
+Customize the attribute the retina/high resolution source is taken from.
 
 ```es6
 const instance = Layzr({
