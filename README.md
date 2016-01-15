@@ -62,7 +62,7 @@ Note the version number in the `src` attributes.
 
 ## Setup Images
 
-Layzr intelligently chooses the best source available, **based on the image's data attributes, and browser feature detection**.
+Layzr intelligently chooses the best source available, **based on the image's data attributes and feature detection**. Note that all **attributes are configureable** via the [options](#options) passed to the constructor.
 
 * In browsers that [support `srcset`](http://caniuse.com/#search=srcset), if available, it will be used to determine the source.
 * In browsers that don't, the normal or retina source will be chosen based on availability and the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
@@ -96,8 +96,6 @@ Put the **source set** in the `data-srcset` attribute. For information on the pr
 ```html
 <img data-normal="normal.jpg" data-retina="retina.jpg" data-srcset="small.jpg 320w, medium.jpg 768w, large.jpg 1024w">
 ```
-
-Note that all **attributes are configureable** via the [options](#options) passed to the constructor.
 
 ## Instantiate
 
