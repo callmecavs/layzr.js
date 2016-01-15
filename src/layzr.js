@@ -122,7 +122,7 @@ export default (options = {}) => {
   }
 
   function update() {
-    nodes = [...document.querySelectorAll(`[${ settings.normal }]`)]
+    nodes = Array.prototype.slice.call(document.querySelectorAll(`[${ settings.normal }]`))
     return this
   }
 }
