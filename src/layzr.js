@@ -97,9 +97,7 @@ export default (options = {}) => {
     instance.emit('sourced', node)
 
     // cleanup node
-    node.removeAttribute(settings.normal)
-    node.removeAttribute(settings.retina)
-    node.removeAttribute(settings.srcset)
+    [settings.normal, settings.retina, settings.srcsrc].forEach(attribute => node.removeAttribute(attribute))
 
     // update remaining nodes
     update()
