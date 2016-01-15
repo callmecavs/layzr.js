@@ -61,7 +61,7 @@ Note the version number in the `src` attributes.
 
 ## Instantiate
 
-If necessary, import Layzr, then instantiate it.
+If necessary, import Layzr. Then, create an instance, passing in your options.
 
 Be sure to **assign your Layzr instance to a variable**. Using your instance, you can:
 
@@ -70,12 +70,12 @@ Be sure to **assign your Layzr instance to a variable**. Using your instance, yo
 * bind callback handlers
 
 ```es6
-// import Layzr, if installed using npm
-import layzr from 'layzr.js'
+// import Layzr (npm install only)
+import Layzr from 'layzr.js'
 
 // create an instance
-// default settings shown below
-const instance = layzr({
+// default options shown below
+const instance = Layzr({
   normal: 'data-normal',
   retina: 'data-retina',
   srcset: 'data-srcset',
