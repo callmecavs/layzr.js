@@ -15,7 +15,7 @@
       var instance = Layzr()
 
       instance
-        .on('sourced', element => console.log('sourced', element))
+        .on('sourced', function(element) { console.log('sourced', element) })
         .update()
         .start()
     </script>
