@@ -84,7 +84,7 @@ export default (options = {}) => {
   // source helper
 
   function setSource(node) {
-    // if available use srcset, otherwise fallback to pixel density
+    // use srcset, fallback to pixel density
     if(srcset && node.hasAttribute(settings.srcset)) {
       node.setAttribute('srcset', node.getAttribute(settings.srcset))
     }
@@ -97,7 +97,10 @@ export default (options = {}) => {
     instance.emit('sourced', node)
 
     // cleanup node
-    ;[settings.normal, settings.retina, settings.srcsrc].forEach(attribute => node.removeAttribute(attribute))
+    ;[settings.normal, settings.retina, settings.srcset].forEach(attr => node.removeAttribute(attr))
+
+    // update remaining nodes
+    update()
   }
 
   // API
@@ -113,10 +116,7 @@ export default (options = {}) => {
   }
 
   function check() {
-    nodes.forEach(node => {
-      inViewport(node) && setSource(node) && update()
-    })
-
+    nodes.forEach(node => inViewport(node) && setSource(node))
     ticking = false
     return this
   }
