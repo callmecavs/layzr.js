@@ -72,9 +72,9 @@ export default (options = {}) => {
   // source helpers
 
   function setSource(node) {
-    // check for srcset support
-    if(supportsSrcset) {
-      node.setAttribute('srcset', node.getAttribute('data-srcset'))
+    // check for srcset support and attribute
+    if(srcset && node.hasAttribute(settings.srcset)) {
+      node.setAttribute('srcset', node.getAttribute(settings.srcset))
       return
     }
   }
