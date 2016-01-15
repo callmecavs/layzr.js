@@ -93,7 +93,7 @@ export default (options = {}) => {
       node.setAttribute('src', retina || node.getAttribute(settings.normal))
     }
 
-    // emit event
+    // emit event, passing along the node
     instance.emit('sourced', node)
 
     // cleanup element
