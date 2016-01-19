@@ -5,6 +5,11 @@
         padding-top: 50vh;
         height: 10000px;
       }
+
+      img {
+        display: block;
+        margin-bottom: 50vh;
+      }
     </style>
   </head>
   <body>
@@ -14,13 +19,34 @@
       data-retina="https://placehold.it/500?text=Retina"
       data-srcset="https://placehold.it/500?text=Small 500w, https://placehold.it/500?text=Medium 1000w, https://placehold.it/500?text=Large 2000w">
 
+    <img
+      src="https://placehold.it/500?text=Placeholder"
+      data-normal="https://placehold.it/500?text=Normal"
+      data-retina="https://placehold.it/500?text=Retina"
+      data-srcset="https://placehold.it/500?text=Small 500w, https://placehold.it/500?text=Medium 1000w, https://placehold.it/500?text=Large 2000w">
+
+    <img
+      src="https://placehold.it/500?text=Placeholder"
+      data-normal="https://placehold.it/500?text=Normal"
+      data-retina="https://placehold.it/500?text=Retina"
+      data-srcset="https://placehold.it/500?text=Small 500w, https://placehold.it/500?text=Medium 1000w, https://placehold.it/500?text=Large 2000w">
+
     <script src="layzr.min.js"></script>
     <script>
-      var instance = Layzr()
+      const instance = Layzr({
+        normal: 'data-normal',
+        retina: 'data-retina',
+        srcset: 'data-srcset'
+      })
 
       instance
-        .on('src:before', function(element) { console.log('src:before', element) })
-        .on('src:after', function(element) { console.log('src:after', element) })
+        .on('src:before', function(image) {
+          console.log('src:before')
+          image.addEventListener('load', function() { console.log('loaded') })
+        })
+        .on('src:after', function() { console.log('src:after') })
+
+      instance
         .update()
         .handlers(true)
     </script>
