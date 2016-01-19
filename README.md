@@ -15,8 +15,8 @@ To get started, follow these steps:
 1. [Install](#install)
 2. [Setup Images](#setup-images)
 3. [Instantiate](#instantiate)
-4. [Bind Callbacks](#callbacks)
 5. [Review Options](#options)
+4. [Review Callbacks](#callbacks)
 6. [Review API](#api)
 7. [Review Examples](https://github.com/callmecavs/layzr.js/tree/master/examples)
 
@@ -40,9 +40,7 @@ $ npm install layzr.js --save
 
 ### CDN
 
-Copy and paste one of the following `<script>` tags.
-
-Note the version number in the `src` attributes.
+Copy and paste one of the following `<script>` tags. Note the version number in the `src` attributes.
 
 #### [jsDelivr](http://www.jsdelivr.com/projects/layzr.js)
 
@@ -66,16 +64,16 @@ Note the version number in the `src` attributes.
 
 ## Setup Images
 
-Layzr intelligently chooses the best source available, **based on the image's data attributes and feature detection**. Note that _all attributes are configureable_ via the [options](#options) passed to the constructor.
+Layzr intelligently chooses the best source available, **based on the image's data attributes and browser feature detection**. Note that _all attributes are configureable_ via the [options](#options) passed to the constructor.
 
 * In browsers that [support `srcset`](http://caniuse.com/#search=srcset), if available, it will be used to determine the source.
-* In browsers that don't, the normal or retina source will be chosen based on availability and the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio).
+* In browsers that don't, the normal or retina source will be chosen based on the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) and availability.
 
 To indicate potential sources, add the following attributes to your images:
 
-1. **Required**: [`data-normal`](#data-normal)
-2. _Optional_: [`data-retina`](#data-retina)
-3. _Optional_: [`data-srcset`](#data-source-set)
+* **Required**: [`data-normal`](#data-normal)
+* [`data-retina`](#data-retina)
+* [`data-srcset`](#data-source-set)
 
 ### data-normal
 
@@ -85,11 +83,11 @@ Put the _normal resolution_ source in the `data-normal` attribute.
 <img data-normal="normal.jpg">
 ```
 
-Note that Layzr **selects elements based on this attribute**.
+Note that Layzr **selects elements using this attribute**. Elements without it won't be tracked, and consequently will never load.
 
 ### data-retina
 
-Put the _retina/high resolution_ source in the `data-retina` attribute.
+Add the _retina/high resolution_ source in the `data-retina` attribute.
 
 ```html
 <img data-normal="normal.jpg" data-retina="retina.jpg">
@@ -97,9 +95,7 @@ Put the _retina/high resolution_ source in the `data-retina` attribute.
 
 ### data-srcset
 
-Put the _source set_ in the `data-srcset` attribute.
-
-For information on the proper syntax, read the official [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img).
+Add the _source set_ in the `data-srcset` attribute. For information on the proper syntax, read the official [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img).
 
 ```html
 <img data-normal="normal.jpg" data-retina="retina.jpg" data-srcset="small.jpg 320w, medium.jpg 768w, large.jpg 1024w">
@@ -107,13 +103,13 @@ For information on the proper syntax, read the official [specification](https://
 
 ## Instantiate
 
-If necessary, import Layzr. Then, create an instance, passing in your [options](#options).
+If necessary, import Layzr. Then, create an instance, optionally passing in your [options](#options).
 
 Be sure to **assign your Layzr instance to a variable**. Using your instance, you can:
 
 * start and stop the event listeners
-* handle dynamically added elements
-* bind callback handlers
+* add and remove callback handlers
+* accommodate dynamically added elements
 
 ```es6
 // import Layzr (npm install only)
@@ -127,46 +123,11 @@ const instance = Layzr({
 })
 ```
 
-## Callbacks
-
-Layzr instances are extended with [Knot.js](https://github.com/callmecavs/knot.js), a browser-based event emitter. Use the event emitter syntax to add and remove event handlers. Review the emitter syntax [here](https://github.com/callmecavs/knot.js#api).
-
-Layzr emits the following events:
-
-* [src:before](#srcbefore)
-* [src:after](#srcafter)
-
-### src:before
-
-This event is emitted immediately _before an image source is set_. The image node is passed to the event handler.
-
-```es6
-instance.on('src:before', (element) => {
-  // 'this' is your Layzr instance
-  // 'element' is the image node
-  // ...
-})
-```
-
-Load event handlers should be attached using this event. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/large.js), and note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
-
-### src:after
-
-This event is emitted immediately _after an image source is set_. The image node is passed to the event handler.
-
-```es6
-instance.on('src:after', (element) => {
-  // 'this' is your Layzr instance
-  // 'element' is the image node
-  // ...
-})
-```
-
-Note that the image is not necessarily done loading when this event fires.
+Available options are outlined in the following section.
 
 ## Options
 
-Default options are shown below:
+Default options are shown below, and an explanation of each follows:
 
 ```es6
 const instance = Layzr({
@@ -176,8 +137,6 @@ const instance = Layzr({
   threshold: 0
 })
 ```
-
-Explanation of each follows.
 
 ### normal
 
@@ -220,6 +179,43 @@ const instance = Layzr({
   threshold: 0
 })
 ```
+
+## Callbacks
+
+Layzr instances are extended with [Knot.js](https://github.com/callmecavs/knot.js), a browser-based event emitter. Use the event emitter syntax to add and remove callbacks. Review the emitter syntax [here](https://github.com/callmecavs/knot.js#api).
+
+Layzr emits the following events:
+
+* [src:before](#srcbefore)
+* [src:after](#srcafter)
+
+### src:before
+
+This event is emitted immediately _before an image source is set_. The image node is passed to the event handler.
+
+```es6
+instance.on('src:before', (element) => {
+  // 'this' is your Layzr instance
+  // 'element' is the image node
+  // ...
+})
+```
+
+Load event handlers should be attached using this event. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/large.js), and note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
+
+### src:after
+
+This event is emitted immediately _after an image source is set_. The image node is passed to the event handler.
+
+```es6
+instance.on('src:after', (element) => {
+  // 'this' is your Layzr instance
+  // 'element' is the image node
+  // ...
+})
+```
+
+Note that the image is not necessarily done loading when this event fires.
 
 ## API
 
