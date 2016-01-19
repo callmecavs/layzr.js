@@ -1,4 +1,4 @@
-// import (installed via npm)
+// install via npm, then import
 
 import Layzr from 'layzr.js'
 
@@ -16,10 +16,8 @@ const instance = Layzr(config)
 
 instance
   .on('src:before', image => {
-    // detect load event
-    image.addEventListener('load', event => {
-      // ...
-    })
+    // add a load event listener
+    image.addEventListener('load', event => image.classList.add('fade'))
   })
   .on('src:after', image => console.log(image))
 
@@ -29,7 +27,7 @@ instance
   .update()           // add initial elements
   .handlers(true)     // add scroll and resize handlers
 
-// add elements
+// add elements dynamically
 
 fetch('path/to.html')
   .then(response => response.text())

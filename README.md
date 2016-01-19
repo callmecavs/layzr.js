@@ -18,6 +18,7 @@ To get started, follow these steps:
 4. [Bind Callbacks](#callbacks)
 5. [Review Options](#options)
 6. [Review API](#api)
+7. [Review Examples](https://github.com/callmecavs/layzr.js/tree/master/examples)
 
 ## Install
 
@@ -84,6 +85,8 @@ Put the _normal resolution_ source in the `data-normal` attribute.
 <img data-normal="normal.jpg">
 ```
 
+Note that Layzr **selects elements based on this attribute**.
+
 ### data-retina
 
 Put the _retina/high resolution_ source in the `data-retina` attribute.
@@ -145,19 +148,7 @@ instance.on('src:before', (element) => {
 })
 ```
 
-Load event handlers should be attached using this event.
-
-Note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
-
-```es6
-// before the image src is set, add a load event listener
-
-instance.on('src:before', (element) => {
-  element.addEventListener('load', event => {
-    // image has loaded...
-  })
-})
-```
+Load event handlers should be attached using this event. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/hard.js), and note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
 
 ### src:after
 
@@ -264,20 +255,7 @@ Update the elements Layzr is checking.
 instance.update()
 ```
 
-**Dynamically added elements** should be handled using this method.
-
-```es6
-// AJAX request to get new HTML
-fetch('path/to.html')
-  .then(response => response.text())
-  .then(html => {
-    // insert new elements
-    document.querySelector('.container').innerHTML(html)
-
-    // update the instance to track them
-    instance.update()
-  })
-```
+**Dynamically added elements** should be handled using this method. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/hard.js).
 
 ## Browser Support
 
