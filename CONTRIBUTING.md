@@ -13,7 +13,7 @@ Most can be solved by **reading the entire README**. I know it's long, but I pro
 Before opening an issue, please review:
 
 * [Getting Started](https://github.com/callmecavs/layzr.js#getting-started)
-* [Browser Support](https://github.com/callmecavs/layzr.js#browser-support)
+* [Example Code](https://github.com/callmecavs/layzr.js/tree/master/examples)
 
 In the event that something is still broken, **include the following with a description of your issue**:
 
