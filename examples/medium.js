@@ -1,12 +1,10 @@
-// use a custom configuration
+// use custom options
 
-const config = {
+const instance = Layzr({
   normal: 'data-example-normal',
   retina: 'data-example-retina',
   srcset: 'data-example-srcset'
-}
-
-const instance = Layzr(config)
+})
 
 // add callbacks
 
@@ -21,5 +19,5 @@ instance
 // start it up
 
 instance
-  .update()           // add initial elements
-  .handlers(true)     // add scroll and resize handlers
+  .update()           // track initial elements
+  .handlers(true)     // bind scroll and resize handlers

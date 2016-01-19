@@ -1,31 +1,33 @@
-// install via npm, then import
+// install from npm, then import
 
 import Layzr from 'layzr.js'
 
-// use a custom configuration
+// use custom options
 
-const config = {
+const instance = Layzr({
   normal: 'data-example-normal',
   retina: 'data-example-retina',
   srcset: 'data-example-srcset'
-}
-
-const instance = Layzr(config)
+})
 
 // add callbacks
 
 instance
   .on('src:before', image => {
     // add a load event listener
-    image.addEventListener('load', event => image.classList.add('fade'))
+    image.addEventListener('load', event => {
+      // ...
+    })
   })
-  .on('src:after', image => console.log(image))
+  .on('src:after', image => {
+    // ...
+  })
 
 // start it up
 
 instance
-  .update()           // add initial elements
-  .handlers(true)     // add scroll and resize handlers
+  .update()           // track initial elements
+  .handlers(true)     // bind scroll and resize handlers
 
 // add elements dynamically
 
@@ -33,5 +35,7 @@ fetch('path/to.html')
   .then(response => response.text())
   .then(html => {
     document.querySelector('.container').innerHTML(html)
+
+    // track new elements
     instance.update()
   })

@@ -1,9 +1,9 @@
-// use the default configuration
+// use the default options
 
 const instance = Layzr()
 
 // start it up
 
 instance
-  .update()           // add initial elements
-  .handlers(true)     // add scroll and resize handlers
+  .update()           // track initial elements
+  .handlers(true)     // bind scroll and resize handlers
