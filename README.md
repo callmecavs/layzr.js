@@ -18,7 +18,8 @@ To get started, follow these steps:
 5. [Review Options](#options)
 4. [Review Callbacks](#callbacks)
 6. [Review API](#api)
-7. [Review Example Code](https://github.com/callmecavs/layzr.js/tree/master/examples) (They progress like a coffee addiction: small -> medium -> large)
+7. [Review Example Code](https://github.com/callmecavs/layzr.js/tree/master/examples)
+  * The examples progress like a coffee addiction: small -> medium -> large
 
 ## Install
 
