@@ -234,20 +234,16 @@ const instance = Layzr({
 
 All API methods are **chainable**, including those from the emitter.
 
-### .start()
+### .handlers(flag)
 
-Bind the `scroll` and `resize` event handlers.
-
-```es6
-instance.start()
-```
-
-### .stop()
-
-Unbind the `scroll` and `resize` event handlers.
+Add or remove the `scroll` and `resize` event handlers.
 
 ```es6
-instance.stop()
+// 'true' adds them
+instance.handlers(true)
+
+// 'false' removes them
+instance.handlers(false)
 ```
 
 ### .check()

@@ -96,8 +96,8 @@ export default (options = {}) => {
 
   // API
 
-  function handlers(toggle) {
-    const action = toggle
+  function handlers(flag) {
+    const action = flag
       ? 'addEventListener'
       : 'removeEventListener'
 
