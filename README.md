@@ -15,11 +15,11 @@ To get started, follow these steps:
 1. [Install](#install)
 2. [Setup Images](#setup-images)
 3. [Instantiate](#instantiate)
-5. [Review Options](#options)
-4. [Review Callbacks](#callbacks)
+4. [Review Options](#options)
+5. [Review Callbacks](#callbacks)
 6. [Review API](#api)
 7. [Review Example Code](https://github.com/callmecavs/layzr.js/tree/master/examples)
-  * Examples progress like a coffee addiction: small `->` medium `->` large
+  * Examples progress like a coffee addiction: small -> medium -> large
 
 ## Install
 
@@ -104,7 +104,7 @@ Add the _source set_ in the `data-srcset` attribute. For information on the prop
 
 ## Instantiate
 
-If necessary, import Layzr. Then, create an instance, optionally passing in your [options](#options).
+Create an instance, optionally passing in your [options](#options).
 
 Be sure to **assign your Layzr instance to a variable**. Using your instance, you can:
 
@@ -113,18 +113,18 @@ Be sure to **assign your Layzr instance to a variable**. Using your instance, yo
 * accommodate dynamically added elements
 
 ```es6
-// import Layzr (npm install only)
+// using the default options
 
-import Layzr from 'layzr.js'
+const instance = Layzr()
 
-// create an instance
+// using custom options
 
 const instance = Layzr({
   // options...
 })
 ```
 
-Available options are outlined in the following section.
+Options are explained in the following section.
 
 ## Options
 
