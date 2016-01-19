@@ -148,7 +148,7 @@ instance.on('src:before', (element) => {
 })
 ```
 
-Load event handlers should be attached using this event. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/hard.js), and note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
+Load event handlers should be attached using this event. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/large.js), and note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
 
 ### src:after
 
@@ -255,7 +255,7 @@ Update the elements Layzr is checking.
 instance.update()
 ```
 
-**Dynamically added elements** should be handled using this method. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/hard.js).
+**Dynamically added elements** should be handled using this method. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/large.js).
 
 ## Browser Support
 
