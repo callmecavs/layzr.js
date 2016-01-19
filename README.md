@@ -70,15 +70,13 @@ Layzr intelligently chooses the best image source available **based on an image'
 * In browsers that [support `srcset`](http://caniuse.com/#search=srcset), if available, it will be used to determine the source.
 * In browsers that don't, the normal or retina source will be chosen based on the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) and availability.
 
-To indicate potential sources, add the following attributes to your images:
+To indicate potential sources, add the following attributes to your images. Note that all attribute names are configureable via the [options](#options) passed to the constructor.
 
 |  Required      | Name                            |
 | :------------: | :-----------------------------: |
 |  ✓             |  [`data-normal`](#data-normal)  |
 |                |  [`data-retina`](#data-retina)  |
 |                |  [`data-srcset`](#data-srcset)  |
-
-Note that all attribute names are configureable via the [options](#options) passed to the constructor.
 
 ### data-normal
 
@@ -88,7 +86,7 @@ Put the _normal resolution_ source in the `data-normal` attribute.
 <img data-normal="normal.jpg">
 ```
 
-Note that Layzr **selects elements using this attribute**. Elements without it won't be tracked, and consequently will never load.
+Note that Layzr **selects elements using this attribute**. Elements without it won't be tracked, and will never load.
 
 ### data-retina
 
@@ -124,7 +122,7 @@ const instance = Layzr()
 // using custom options
 
 const instance = Layzr({
-  // options...
+  // ...
 })
 ```
 
@@ -231,18 +229,16 @@ All API methods are **chainable**, including those from the emitter.
 Add or remove the `scroll` and `resize` event handlers.
 
 ```es6
-// 'true' adds them
-instance.handlers(true)
-
-// 'false' removes them
-instance.handlers(false)
+instance
+  .handlers(true)       // 'true' adds them
+  .handlers(false)      // 'false' removes them
 ```
 
 ### .check()
 
 Manually check if elements are in the viewport.
 
-This method is called while the window is scrolled or resized.
+This method is called while the `window` is scrolled or resized.
 
 ```es6
 instance.check()
