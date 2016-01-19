@@ -72,15 +72,11 @@ Layzr intelligently chooses the best image source available **based on an image'
 
 To indicate potential sources, add the following attributes to your images:
 
-| Required?    | Name                              |
-| ------------ | --------------------------------- |
-| ✓            | [`data-normal`](#data-normal)     |
-|              | [`data-retina`](#data-retina)     |
-|              | [`data-srcset`](#data-source-set) |
-
-* **Required**: [`data-normal`](#data-normal)
-* [`data-retina`](#data-retina)
-* [`data-srcset`](#data-source-set)
+|  Required      | Name                            |
+| :------------: | :-----------------------------: |
+|  ✓             |  [`data-normal`](#data-normal)  |
+|                |  [`data-retina`](#data-retina)  |
+|                |  [`data-srcset`](#data-srcset)  |
 
 Note that all attribute names are configureable via the [options](#options) passed to the constructor.
 
