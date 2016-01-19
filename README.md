@@ -19,7 +19,7 @@ To get started, follow these steps:
 4. [Review Callbacks](#callbacks)
 6. [Review API](#api)
 7. [Review Example Code](https://github.com/callmecavs/layzr.js/tree/master/examples)
-  * The examples progress like a coffee addiction: small -> medium -> large
+  * Examples progress like a coffee addiction: small `->` medium `->` large
 
 ## Install
 
