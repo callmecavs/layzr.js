@@ -21,7 +21,7 @@ export default (options = {}) => {
   // feature detection
   // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
 
-  const srcset = 'srcset' in document.createElement('img')
+  const srcset = document.body.classList.contains('srcset') || 'srcset' in document.createElement('img')
 
   // device pixel ratio
   // not supported in IE10 - https://msdn.microsoft.com/en-us/library/dn265030(v=vs.85).aspx
