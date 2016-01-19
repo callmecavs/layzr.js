@@ -8,7 +8,7 @@ A small, fast, and modern library for lazy loading images.
 
 ## Getting Started
 
-Layzr was developed with a modern JavaScript workflow in mind. Though not required to use Layzr, it's convenient to have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, try [outset](https://github.com/callmecavs/outset).
+Layzr was developed with a modern JavaScript workflow in mind. Though not required, it's convenient to have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, try [outset](https://github.com/callmecavs/outset).
 
 To get started, follow these steps:
 
@@ -18,12 +18,12 @@ To get started, follow these steps:
 4. [Review Options](#options)
 5. [Review Callbacks](#callbacks)
 6. [Review API](#api)
-7. [Review Example Code](https://github.com/callmecavs/layzr.js/tree/master/examples)
+7. **[Review Example Code](https://github.com/callmecavs/layzr.js/tree/master/examples)**
   * Examples progress like a coffee addiction: small -> medium -> large
 
 ## Install
 
-Choose from the following installation options, based on what best suits your project and environment.
+Choose an installation option based on your project and environment.
 
 * [npm](#npm)
 * [CDN](#cdn)
@@ -65,16 +65,24 @@ Copy and paste one of the following `<script>` tags. Note the version number in 
 
 ## Setup Images
 
-Layzr intelligently chooses the best source available, **based on the image's data attributes and browser feature detection**. Note that _all attributes are configureable_ via the [options](#options) passed to the constructor.
+Layzr intelligently chooses the best image source available **based on an image's data attributes and browser feature detection**.
 
 * In browsers that [support `srcset`](http://caniuse.com/#search=srcset), if available, it will be used to determine the source.
 * In browsers that don't, the normal or retina source will be chosen based on the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) and availability.
 
 To indicate potential sources, add the following attributes to your images:
 
+| Required?    | Name                              |
+| ------------ | --------------------------------- |
+| ✓            | [`data-normal`](#data-normal)     |
+|              | [`data-retina`](#data-retina)     |
+|              | [`data-srcset`](#data-source-set) |
+
 * **Required**: [`data-normal`](#data-normal)
 * [`data-retina`](#data-retina)
 * [`data-srcset`](#data-source-set)
+
+Note that all attribute names are configureable via the [options](#options) passed to the constructor.
 
 ### data-normal
 
