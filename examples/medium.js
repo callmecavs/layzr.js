@@ -16,8 +16,10 @@ instance
     // ...
   })
 
-// start it up
+// start it up, when the DOM is ready
 
-instance
-  .update()           // track initial elements
-  .handlers(true)     // bind scroll and resize handlers
+document.addEventListener('DOMContentLoaded', event => {
+  instance
+    .update()           // track initial elements
+    .handlers(true)     // bind scroll and resize handlers
+})
