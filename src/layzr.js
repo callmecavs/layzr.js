@@ -1,6 +1,14 @@
 import knot from 'knot.js'
 
 export default (options = {}) => {
+  // private
+
+  let prevLoc
+  let ticking
+
+  let nodes
+  let windowHeight
+
   // options
 
   const settings = {
@@ -9,13 +17,6 @@ export default (options = {}) => {
     srcset: options.srcset || 'data-srcset',
     threshold: options.threshold || 0
   }
-
-  // events
-
-  const events = [
-    'scroll',
-    'resize'
-  ]
 
   // feature detection
   // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
@@ -27,19 +28,10 @@ export default (options = {}) => {
 
   const dpr = window.devicePixelRatio || window.screen.deviceXDPI / window.screen.logicalXDPI
 
-  // cache
-
-  let prevLoc
-  let ticking
-
-  let nodes
-  let windowHeight
-
   // instance
 
   const instance = knot({
-    start: start,
-    stop: stop,
+    handlers: handlers,
     check: check,
     update: update
   })
@@ -84,10 +76,9 @@ export default (options = {}) => {
   // source helper
 
   function setSource(node) {
-    // emit before:src event, passing along the node
     instance.emit('src:before', node)
 
-    // use srcset, fallback to pixel density
+    // prefer srcset, fallback to pixel density
     if(srcset && node.hasAttribute(settings.srcset)) {
       node.setAttribute('srcset', node.getAttribute(settings.srcset))
     }
@@ -96,25 +87,21 @@ export default (options = {}) => {
       node.setAttribute('src', retina || node.getAttribute(settings.normal))
     }
 
-    // emit after:src event, passing along the node
     instance.emit('src:after', node)
 
-    // cleanup node
     ;[settings.normal, settings.retina, settings.srcset].forEach(attr => node.removeAttribute(attr))
 
-    // update remaining nodes
     update()
   }
 
   // API
 
-  function start() {
-    events.forEach(event => window.addEventListener(event, requestScroll))
-    return this
-  }
+  function handlers(toggle) {
+    const action = toggle
+      ? 'addEventListener'
+      : 'removeEventListener'
 
-  function stop() {
-    events.forEach(event => window.removeEventListener(event, requestScroll))
+    ;['scroll', 'resize'].forEach(event => window[action](event, requestScroll))
     return this
   }
 

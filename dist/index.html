@@ -8,16 +8,21 @@
     </style>
   </head>
   <body>
-    <img src="placeholder.jpg" data-normal="default.jpg" data-retina="retina.jpg" data-srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w">
+    <img
+      src="https://placehold.it/500?text=Placeholder"
+      data-normal="https://placehold.it/500?text=Normal"
+      data-retina="https://placehold.it/500?text=Retina"
+      data-srcset="https://placehold.it/500?text=Small 500w, https://placehold.it/500?text=Medium 1000w, https://placehold.it/500?text=Large 2000w">
 
     <script src="layzr.min.js"></script>
     <script>
       var instance = Layzr()
 
       instance
-        .on('sourced', function(element) { console.log('sourced', element) })
+        .on('src:before', function(element) { console.log('src:before', element) })
+        .on('src:after', function(element) { console.log('src:after', element) })
         .update()
-        .start()
+        .handlers(true)
     </script>
   </body>
 </html>
