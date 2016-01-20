@@ -79,7 +79,7 @@ Layzr intelligently chooses the best image source available **based on an image'
 Note that all attribute names are configureable via the [options](#options) passed to Layzr. To indicate potential sources, add the following attributes to your images:
 
 | Name                           | Required | Optional |
-| :----------------------------- | :------- | :------- |
+| :----------------------------- | :------: | :------: |
 | [`data-normal`](#data-normal)  |  ✓       |          |
 | [`data-retina`](#data-retina)  |          |  ✓       |
 | [`data-srcset`](#data-srcset)  |          |  ✓       |
