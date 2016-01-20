@@ -16,7 +16,7 @@ To get started, follow these steps:
 2. [Setup Images](#setup-images)
 3. [Instantiate](#instantiate)
 4. [Review Options](#options)
-5. [Review Callbacks](#callbacks)
+5. [Review Events](#events)
 6. [Review API](#api)
 7. **[Review Example Code](https://github.com/callmecavs/layzr.js/tree/master/examples)**
   * Examples progress like a coffee addiction: small -> medium -> large
@@ -111,7 +111,7 @@ Create an instance, optionally passing in your [options](#options).
 Be sure to **assign your Layzr instance to a variable**. Using your instance, you can:
 
 * start and stop the event listeners
-* add and remove callback handlers
+* add and remove event handlers
 * accommodate dynamically added elements
 
 ```es6
@@ -183,9 +183,9 @@ const instance = Layzr({
 })
 ```
 
-## Callbacks
+## Events
 
-Layzr instances are extended with [Knot.js](https://github.com/callmecavs/knot.js), a browser-based event emitter. Use the event emitter syntax to add and remove callbacks. Review the emitter syntax [here](https://github.com/callmecavs/knot.js#api).
+Layzr instances are extended with [Knot.js](https://github.com/callmecavs/knot.js), a browser-based event emitter. Use the event emitter syntax to add and remove handlers. Review the emitter syntax [here](https://github.com/callmecavs/knot.js#api).
 
 Layzr emits the following events:
 
