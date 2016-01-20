@@ -258,6 +258,7 @@ instance.update()
 
 Layzr depends on the following browser APIs:
 
+* [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
 * ES5 array methods: [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach), [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 * [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
 
