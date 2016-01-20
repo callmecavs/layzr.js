@@ -10,9 +10,12 @@
   width: 139px;
   height: 61px;
   margin-bottom: 25px;
-  margin-left: auto;
   background: url("images/logo.svg") center center no-repeat;
   @include hide-text;
+
+  @include mq-min($desktop) {
+    margin-left: auto;
+  }
 }
 
 .header-download {
