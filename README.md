@@ -8,9 +8,7 @@ A small, fast, and modern library for lazy loading images.
 
 ## Getting Started
 
-Layzr was developed with a modern JavaScript workflow in mind. Though not required, it's convenient to have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, try [outset](https://github.com/callmecavs/outset).
-
-To get started, follow these steps:
+Follow these steps:
 
 1. [Install](#install)
 2. [Setup Images](#setup-images)
@@ -23,7 +21,9 @@ To get started, follow these steps:
 
 ## Install
 
-Choose an installation option based on your project and environment.
+Layzr was developed with a modern JavaScript workflow in mind. Though not required, it's convenient to have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, try [outset](https://github.com/callmecavs/outset).
+
+Choose an installation option based on your workflow:
 
 * [npm](#npm)
 * [CDN](#cdn)
