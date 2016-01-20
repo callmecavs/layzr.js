@@ -10,17 +10,9 @@
   width: 139px;
   height: 61px;
   margin-bottom: 25px;
+  margin-left: auto;
   background: url("images/logo.svg") center center no-repeat;
   @include hide-text;
-}
-
-.header-social {
-  @include clearfix;
-  margin-bottom: 40px;
-
-  @include mq-min($desktop) {
-    text-align: right;
-  }
 }
 
 .header-download {
@@ -31,7 +23,7 @@
     display: block;
     width: 109px;     // w/o border 105
     height: 34px;     // w/o border 30
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     padding-top: 4px;
     border: 2px solid #AFBDC4;
     border-radius: 3px;
@@ -42,21 +34,4 @@
     @include letter-spacing(1px);
     color: #AFBDC4;
   }
-}
-
-.header-social-share {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.header-social-github {
-  margin-right: 10px;
-  background-image: url("images/icons/social-github.svg");
-}
-
-.header-social-twitter {
-  background-image: url("images/icons/social-twitter.svg");
 }
