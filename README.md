@@ -39,6 +39,12 @@ Install Layzr, and add it to your `package.json` dependencies.
 $ npm install layzr.js --save
 ```
 
+Then `import` it into the file where you'll use it.
+
+```es6
+import Layzr from 'layzr.js'
+```
+
 ### CDN
 
 Copy and paste one of the following `<script>` tags. Note the version number in the `src` attributes.
