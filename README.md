@@ -76,7 +76,7 @@ Layzr intelligently chooses the best image source available **based on an image'
 * In browsers that [support `srcset`](http://caniuse.com/#search=srcset), if available, it will be used to determine the source.
 * In browsers that don't, the normal or retina source will be chosen based on the [devicePixelRatio](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) and availability.
 
-To indicate potential sources, add the following attributes to your images. Note that all attribute names are configureable via the [options](#options) passed to the constructor.
+Note that all attribute names are configureable via the [options](#options) passed to Layzr. To indicate potential sources, add the following attributes to your images:
 
 |  Required      | Name                            |
 | :------------: | :-----------------------------: |
