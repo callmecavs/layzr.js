@@ -52,13 +52,13 @@ Copy and paste one of the following `<script>` tags. Note the version number in 
 #### [jsDelivr](http://www.jsdelivr.com/projects/layzr.js)
 
 ```html
-<script src="https://cdn.jsdelivr.net/layzr.js/2.0.0/layzr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/layzr.js/2.0.2/layzr.min.js"></script>
 ```
 
 #### [cdnjs](https://cdnjs.com/libraries/layzr.js)
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/2.0.0/layzr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/2.0.2/layzr.min.js"></script>
 ```
 
 ### Download
@@ -210,7 +210,7 @@ instance.on('src:before', (element) => {
 })
 ```
 
-Load event handlers should be attached using this event. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/large.js), and note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
+Load event handlers should be attached using this event. See the [example](https://github.com/callmecavs/layzr.js/blob/master/examples/large.js), and note the [caveats](https://api.jquery.com/load-event/) associated with image load events before proceeding.
 
 ### src:after
 
@@ -258,7 +258,7 @@ Update the elements Layzr is checking.
 instance.update()
 ```
 
-**Dynamically added elements** should be handled using this method. See the [example](https://github.com/callmecavs/layzr.js/blob/v2.0.0/examples/large.js).
+**Dynamically added elements** should be handled using this method. See the [example](https://github.com/callmecavs/layzr.js/blob/master/examples/large.js).
 
 ## Browser Support
 
