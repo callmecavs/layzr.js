@@ -67,7 +67,7 @@ export default (options = {}) => {
     const nodeTop = getOffset(node)
     const nodeBot = nodeTop + node.offsetHeight
 
-    const offset = (settings.threshold * 100) / windowHeight
+    const offset = (settings.threshold / 100) * windowHeight
 
     return nodeBot >= viewTop - offset
         && nodeTop <= viewBot + offset

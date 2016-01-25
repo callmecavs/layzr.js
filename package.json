@@ -1,6 +1,6 @@
 {
   "name":        "layzr.js",
-  "version":     "2.0.0",
+  "version":     "2.0.1",
   "description": "A small, fast, and modern library for lazy loading images.",
   "homepage":    "http://callmecavs.github.io/layzr.js/",
   "main":        "dist/layzr.min.js",
