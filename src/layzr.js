@@ -3,7 +3,7 @@ import knot from 'knot.js'
 export default (options = {}) => {
   // private
 
-  let prevLoc
+  let prevLoc = getLoc()
   let ticking
 
   let nodes
@@ -38,10 +38,16 @@ export default (options = {}) => {
 
   return instance
 
+  // location helper
+
+  function getLoc() {
+    return window.scrollY || window.pageYOffset
+  }
+
   // debounce helpers
 
   function requestScroll() {
-    prevLoc = window.scrollY || window.pageYOffset
+    prevLoc = getLoc()
     requestFrame()
   }
 
