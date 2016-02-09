@@ -28,6 +28,7 @@ Choose an installation option based on your workflow:
 * [npm](#npm)
 * [CDN](#cdn)
 * [Download](#download)
+* [Framework Bridge](#framework-bridge)
 
 Refer to the [releases](https://github.com/callmecavs/layzr.js/releases) page for version specific information.
 
@@ -68,6 +69,12 @@ Copy and paste one of the following `<script>` tags. Note the version number in 
 ```html
 <script src="layzr.min.js"></script>
 ```
+
+### Framework Bridge
+
+Thank you to the community members who created these framework bridges!
+
+* Ruby on Rails: [layzr-rails](https://github.com/mohitjain/layzr-rails) by [Mohit Jain](https://github.com/mohitjain)
 
 ## Setup Images
 
