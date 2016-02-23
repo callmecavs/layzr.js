@@ -32,6 +32,7 @@ export default (options = {}) => {
 
   const instance = knot({
     handlers: handlers,
+    handlersFor: handlersFor,
     check: check,
     update: update
   })
@@ -108,6 +109,15 @@ export default (options = {}) => {
       : 'removeEventListener'
 
     ;['scroll', 'resize'].forEach(event => window[action](event, requestScroll))
+    return this
+  }
+
+  function handlersFor(node, flag) {
+    const action = flag
+      ? 'addEventListener'
+      : 'removeEventListener'
+
+    ;node[action]('scroll', requestFrame)
     return this
   }
 
