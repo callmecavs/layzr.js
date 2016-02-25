@@ -2,10 +2,6 @@
 
 Follow the [golden rule](https://en.wikipedia.org/wiki/Golden_Rule). Be respectful, even to those that are disrespectful. Please understand that no one is getting paid to develop/maintain open source software.
 
-# Questions
-
-Please ask all questions in the [Gitter chatroom](https://gitter.im/callmecavs/layzr.js). Registration is simple via GitHub authentication.
-
 # Issues
 
 Most can be solved by **reading the entire README**. I know it's long, but I promise it's thorough.
