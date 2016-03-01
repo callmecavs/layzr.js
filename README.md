@@ -295,6 +295,6 @@ To support older browsers, consider including [polyfills/shims](https://github.c
 
 ## License
 
-MIT. © 2016 Michael Cavalea
+[GPL](http://www.gnu.org/licenses/gpl.txt). © 2016 Michael Cavalea
 
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)

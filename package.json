@@ -1,12 +1,12 @@
 {
   "name":        "layzr.js",
-  "version":     "2.0.2",
+  "version":     "2.0.3",
   "description": "A small, fast, and modern library for lazy loading images.",
   "homepage":    "http://callmecavs.github.io/layzr.js/",
   "main":        "dist/layzr.min.js",
 
   "author":  "Michael Cavalea",
-  "license": "MIT",
+  "license": "GPL",
 
   "repository": {
     "type": "git",
