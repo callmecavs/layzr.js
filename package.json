@@ -6,7 +6,7 @@
   "main":        "dist/layzr.min.js",
 
   "author":  "Michael Cavalea",
-  "license": "GPL",
+  "license": "GPL-3.0",
 
   "repository": {
     "type": "git",
