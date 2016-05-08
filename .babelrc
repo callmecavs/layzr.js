@@ -1,4 +1,4 @@
 {
-  "presets": ["es2015"],
-  "plugins": ["add-module-exports"]
+  "presets": ["es2015-rollup"],
+  "plugins": ["transform-object-rest-spread"]
 }
