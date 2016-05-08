@@ -44,7 +44,8 @@ const read = {
   entry: 'src/layzr.js',
   sourceMap: true,
   plugins: [
-    babel({ exclude: 'node_modules/**' }),
+    resolve({ jsnext: true }),
+    babel(),
     uglify()
   ]
 }
