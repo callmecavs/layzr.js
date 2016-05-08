@@ -28,15 +28,16 @@
   },
 
   "devDependencies": {
-    "babel-preset-es2015-rollup": "*",
-    "browser-sync":               "*",
-    "del":                        "*",
-    "gulp":                       "*",
-    "node-notifier":              "*",
-    "rollup":                     "*",
-    "rollup-plugin-babel":        "*",
-    "rollup-plugin-commonjs":     "*",
-    "rollup-plugin-node-resolve": "*",
-    "rollup-plugin-uglify":       "*"
+    "babel-preset-es2015-rollup":                "*",
+    "babel-plugin-transform-object-rest-spread": "*",
+    "browser-sync":                              "*",
+    "del":                                       "*",
+    "gulp":                                      "*",
+    "node-notifier":                             "*",
+    "rollup":                                    "*",
+    "rollup-plugin-babel":                       "*",
+    "rollup-plugin-commonjs":                    "*",
+    "rollup-plugin-node-resolve":                "*",
+    "rollup-plugin-uglify":                      "*"
   }
 }
