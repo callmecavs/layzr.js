@@ -4,6 +4,7 @@
   "description": "A small, fast, and modern library for lazy loading images.",
   "homepage":    "http://callmecavs.github.io/layzr.js/",
   "main":        "dist/layzr.min.js",
+  "jsnext:main": "src/layzr.js",
 
   "author":  "Michael Cavalea",
   "license": "GPL-3.0",
