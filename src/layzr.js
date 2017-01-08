@@ -40,33 +40,33 @@ export default (options = {}) => {
 
   // location helper
 
-  function getLoc() {
+  function getLoc () {
     return window.scrollY || window.pageYOffset
   }
 
   // debounce helpers
 
-  function requestScroll() {
+  function requestScroll () {
     prevLoc = getLoc()
     requestFrame()
   }
 
-  function requestFrame() {
-    if(!ticking) {
-      requestAnimationFrame(() => check())
+  function requestFrame () {
+    if (!ticking) {
+      window.requestAnimationFrame(() => check())
       ticking = true
     }
   }
 
   // offset helper
 
-  function getOffset(node) {
+  function getOffset (node) {
     return node.getBoundingClientRect().top + prevLoc
   }
 
   // in viewport helper
 
-  function inViewport(node) {
+  function inViewport (node) {
     const viewTop = prevLoc
     const viewBot = viewTop + windowHeight
 
@@ -75,20 +75,18 @@ export default (options = {}) => {
 
     const offset = (settings.threshold / 100) * windowHeight
 
-    return nodeBot >= viewTop - offset
-        && nodeTop <= viewBot + offset
+    return (nodeBot >= viewTop - offset) && (nodeTop <= viewBot + offset)
   }
 
   // source helper
 
-  function setSource(node) {
+  function setSource (node) {
     instance.emit('src:before', node)
 
     // prefer srcset, fallback to pixel density
-    if(srcset && node.hasAttribute(settings.srcset)) {
+    if (srcset && node.hasAttribute(settings.srcset)) {
       node.setAttribute('srcset', node.getAttribute(settings.srcset))
-    }
-    else {
+    } else {
       const retina = dpr > 1 && node.getAttribute(settings.retina)
       node.setAttribute('src', retina || node.getAttribute(settings.normal))
     }
@@ -102,7 +100,7 @@ export default (options = {}) => {
 
   // API
 
-  function handlers(flag) {
+  function handlers (flag) {
     const action = flag
       ? 'addEventListener'
       : 'removeEventListener'
@@ -111,7 +109,7 @@ export default (options = {}) => {
     return this
   }
 
-  function check() {
+  function check () {
     windowHeight = window.innerHeight
 
     nodes.forEach(node => inViewport(node) && setSource(node))
@@ -120,8 +118,8 @@ export default (options = {}) => {
     return this
   }
 
-  function update() {
-    nodes = Array.prototype.slice.call(document.querySelectorAll(`[${ settings.normal }]`))
+  function update () {
+    nodes = Array.prototype.slice.call(document.querySelectorAll(`[${settings.normal}]`))
     return this
   }
 }
