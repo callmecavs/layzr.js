@@ -1,20 +1,28 @@
 {
   "name":        "layzr.js",
-  "version":     "2.2.1",
-  "description": "A small, fast, and modern library for lazy loading images.",
-  "homepage":    "http://callmecavs.github.io/layzr.js/",
-  "main":        "dist/layzr.min.js",
-  "jsnext:main": "src/layzr.js",
+  "description": "A modern lazy loading library for images.",
 
-  "author":  "Michael Cavalea",
+  "main":        "dist/layzr.js",
+  "module":      "dist/layzr.module.js",
+  "jsnext:main": "dist/layzr.module.js",
+
+  "version": "2.2.2",
   "license": "MIT",
 
-  "repository": {
-    "type": "git",
-    "url":  "https://github.com/callmecavs/layzr.js.git"
+  "repository": "callmecavs/layzr.js",
+
+  "author": {
+    "name":  "Michael Cavalea",
+    "email": "callmecavs@gmail.com",
+    "url":   "http://callmecavs.com/"
   },
-  "bugs": {
-    "url": "https://github.com/callmecavs/layzr.js/issues"
+
+  "scripts": {
+    "prebuild":   "eslint src",
+    "build":      "rollup -c",
+    "dev":        "rollup -c -w -m inline",
+    "prepublish": "npm run build",
+    "server":     "python -m SimpleHTTPServer 3000"
   },
 
   "keywords": [
@@ -25,20 +33,21 @@
   ],
 
   "dependencies": {
-    "knot.js": "^1.1.1"
+    "knot.js": "^1.1.5"
   },
 
   "devDependencies": {
-    "babel-preset-es2015-rollup":                "*",
-    "babel-plugin-transform-object-rest-spread": "*",
-    "browser-sync":                              "*",
-    "del":                                       "*",
-    "gulp":                                      "*",
-    "node-notifier":                             "*",
-    "rollup":                                    "*",
-    "rollup-plugin-babel":                       "*",
-    "rollup-plugin-commonjs":                    "*",
-    "rollup-plugin-node-resolve":                "*",
-    "rollup-plugin-uglify":                      "*"
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.18.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.13.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "rollup": "^0.41.1",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-watch": "^3.2.2"
   }
 }
