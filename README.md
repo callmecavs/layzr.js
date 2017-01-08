@@ -21,18 +21,7 @@ Follow these steps:
 
 ## Install
 
-Layzr was developed with a modern JavaScript workflow in mind. Though not required, it's convenient to have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that does so, try [outset](https://github.com/callmecavs/outset).
-
-Choose an installation option based on your workflow:
-
-* [npm](#npm)
-* [CDN](#cdn)
-* [Download](#download)
-* [Framework Bridge](#framework-bridge)
-
-Refer to the [releases](https://github.com/callmecavs/layzr.js/releases) page for version specific information.
-
-### npm
+Layzr was developed with a modern JavaScript workflow in mind. To use it, it's recommended you have a build system in place that can transpile ES6, and bundle modules. For a minimal boilerplate that fulfills those requirements, check out [outset](https://github.com/callmecavs/outset).
 
 Install Layzr, and add it to your `package.json` dependencies.
 
@@ -45,36 +34,6 @@ Then `import` it into the file where you'll use it.
 ```es6
 import Layzr from 'layzr.js'
 ```
-
-### CDN
-
-Copy and paste one of the following `<script>` tags. Note the version number in the `src` attributes.
-
-#### [jsDelivr](http://www.jsdelivr.com/projects/layzr.js)
-
-```html
-<script src="https://cdn.jsdelivr.net/layzr.js/2.0.2/layzr.min.js"></script>
-```
-
-#### [cdnjs](https://cdnjs.com/libraries/layzr.js)
-
-```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/2.0.2/layzr.min.js"></script>
-```
-
-### Download
-
-[Download](https://github.com/callmecavs/layzr.js/archive/master.zip) the latest version, and load the script in the `dist` folder.
-
-```html
-<script src="layzr.min.js"></script>
-```
-
-### Framework Bridge
-
-Thank you to the community members who created these framework bridges!
-
-* Ruby on Rails: [layzr-rails](https://github.com/mohitjain/layzr-rails) by [Mohit Jain](https://github.com/mohitjain)
 
 ## Setup Images
 
