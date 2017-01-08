@@ -2,7 +2,7 @@
 
 [![Layzr.js on NPM](https://img.shields.io/npm/v/layzr.js.svg?style=flat-square)](https://www.npmjs.com/package/layzr.js)
 
-A small, fast, and modern library for lazy loading images.
+A modern lazy loading library for images.
 
 * [Demo Page](http://callmecavs.github.io/layzr.js/)
 
