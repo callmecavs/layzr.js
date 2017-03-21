@@ -1,6 +1,6 @@
 # Layzr.js
 
-[![Layzr.js on NPM](https://img.shields.io/npm/v/layzr.js.svg?style=flat-square)](https://www.npmjs.com/package/layzr.js)
+[![Layzr.js on NPM](https://img.shields.io/npm/v/layzr.js.svg?style=flat-square)](https://www.npmjs.com/package/layzr.js) [![Layzr.js Downloads on NPM](https://img.shields.io/npm/dm/layzr.js.svg?style=flat-square)](npmjs.com/package/layzr.js) [![Standard JavaScript Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 
 A modern lazy loading library for images.
 
@@ -254,6 +254,6 @@ To support older browsers, consider including [polyfills/shims](https://github.c
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT). © 2016 Michael Cavalea
+[MIT](https://opensource.org/licenses/MIT). © 2017 Michael Cavalea
 
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
