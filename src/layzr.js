@@ -74,9 +74,9 @@ export default (options = {}) => {
     const nodeBot = nodeTop + node.offsetHeight
 
     const offset = (settings.threshold / 100) * windowHeight
-    const nodeRect = node.getBoundingClientRect();
+    const nodeRect = node.getBoundingClientRect()
 
-    return (nodeRect.width != 0) && (nodeBot >= viewTop - offset) && (nodeTop <= viewBot + offset)
+    return (nodeRect.width !== 0) && (nodeBot >= viewTop - offset) && (nodeTop <= viewBot + offset)
   }
 
   // source helper
