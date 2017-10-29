@@ -1,6 +1,6 @@
 # Layzr.js
 
-[![Layzr.js on NPM](https://img.shields.io/npm/v/layzr.js.svg?style=flat-square)](https://www.npmjs.com/package/layzr.js) [![Layzr.js Downloads on NPM](https://img.shields.io/npm/dm/layzr.js.svg?style=flat-square)](https://www.npmjs.com/package/layzr.js) [![Standard JavaScript Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
+[![Layzr.js on NPM](https://img.shields.io/npm/v/layzr.js.svg?style=flat-square)](https://www.npmjs.com/package/layzr.js) [![Layzr.js Downloads on NPM](https://img.shields.io/npm/dm/layzr.js.svg?style=flat-square)](https://www.npmjs.com/package/layzr.js) [![jsDelivr Hits](https://data.jsdelivr.com/v1/package/npm/layzr.js/badge)](https://www.jsdelivr.com/package/npm/layzr.js) [![Standard JavaScript Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 
 A modern lazy loading library for images.
 
