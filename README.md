@@ -109,7 +109,8 @@ const instance = Layzr({
   normal: 'data-normal',
   retina: 'data-retina',
   srcset: 'data-srcset',
-  threshold: 0
+  threshold: 0,
+  scrollContainer: window
 })
 ```
 
@@ -152,6 +153,17 @@ Threshold is a percentage of the viewport height, identical to the CSS `vh` unit
 ```es6
 const instance = Layzr({
   threshold: 0
+})
+```
+
+### scrollContainer
+
+Container with scroll which contains images for lazy loading. 
+For example, `<div class="scrolled">...</div>` with the following style: `overflow: scroll;`.
+
+```es6
+const instance = Layzr({
+  scrollContainer: document.getElementsByClassName('scrolled')[0]
 })
 ```
 
@@ -210,7 +222,7 @@ instance
 
 Manually check if elements are in the viewport.
 
-This method is called while the `window` is scrolled or resized.
+This method is called while the `scrollContainer` is scrolled or resized (resized is available only if `scrollContainer` is the `window`).
 
 ```es6
 instance.check()

@@ -1,22 +1,26 @@
 import knot from 'knot.js'
 
 export default (options = {}) => {
-  // private
-
-  let prevLoc = getLoc()
-  let ticking
-
-  let nodes
-  let windowHeight
-
   // options
 
   const settings = {
     normal: options.normal || 'data-normal',
     retina: options.retina || 'data-retina',
     srcset: options.srcset || 'data-srcset',
-    threshold: options.threshold || 0
+    threshold: options.threshold || 0,
+    scrollContainer: options.scrollContainer || window
   }
+
+  // private
+
+  // eslint-disable-next-line
+  const isWindowScrollContainer = settings.scrollContainer instanceof Window
+
+  let prevLoc = getLoc()
+  let ticking
+
+  let nodes
+  let containerHeight
 
   // feature detection
   // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/srcset.js
@@ -41,7 +45,14 @@ export default (options = {}) => {
   // location helper
 
   function getLoc () {
-    return window.scrollY || window.pageYOffset
+    let loc
+    if (isWindowScrollContainer) {
+      loc = settings.scrollContainer.scrollY || settings.scrollContainer.pageYOffset
+    } else {
+      loc = settings.scrollContainer.scrollTop
+    }
+
+    return loc
   }
 
   // debounce helpers
@@ -68,12 +79,12 @@ export default (options = {}) => {
 
   function inViewport (node) {
     const viewTop = prevLoc
-    const viewBot = viewTop + windowHeight
+    const viewBot = viewTop + containerHeight
 
     const nodeTop = getOffset(node)
     const nodeBot = nodeTop + node.offsetHeight
 
-    const offset = (settings.threshold / 100) * windowHeight
+    const offset = (settings.threshold / 100) * containerHeight
 
     return (nodeBot >= viewTop - offset) && (nodeTop <= viewBot + offset)
   }
@@ -105,12 +116,12 @@ export default (options = {}) => {
       ? 'addEventListener'
       : 'removeEventListener'
 
-    ;['scroll', 'resize'].forEach(event => window[action](event, requestScroll))
+    ;['scroll', 'resize'].forEach(event => settings.scrollContainer[action](event, requestScroll))
     return this
   }
 
   function check () {
-    windowHeight = window.innerHeight
+    containerHeight = settings.scrollContainer.offsetHeight || settings.scrollContainer.innerHeight
 
     nodes.forEach(node => inViewport(node) && setSource(node))
 
@@ -119,7 +130,14 @@ export default (options = {}) => {
   }
 
   function update () {
-    nodes = Array.prototype.slice.call(document.querySelectorAll(`[${settings.normal}]`))
+    let container
+    if (isWindowScrollContainer) {
+      container = document
+    } else {
+      container = settings.scrollContainer
+    }
+
+    nodes = Array.prototype.slice.call(container.querySelectorAll(`[${settings.normal}]`))
     return this
   }
 }

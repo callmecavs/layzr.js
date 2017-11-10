@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div class="scrolled">
+
+      <div class="grumpy-image-wrapper">
+        <img class="grumpy-image" data-normal="example-image_original.jpeg"
+             data-srcset="img/1/example-image_320.png 320w, img/1/example-image_768.png 768w, img/1/example-image_1024.png 1024w">
+      </div>
+
+      <div class="grumpy-image-wrapper">
+        <img class="grumpy-image" data-normal="example-image_original.jpeg"
+             data-srcset="img/2/example-image_320.png 320w, img/2/example-image_768.png 768w, img/2/example-image_1024.png 1024w">
+      </div>
+
+      <div class="grumpy-image-wrapper">
+        <img class="grumpy-image" data-normal="example-image_original.jpeg"
+             data-srcset="img/3/example-image_320.png 320w, img/3/example-image_768.png 768w, img/3/example-image_1024.png 1024w">
+      </div>
+
+      <div class="grumpy-image-wrapper">
+        <img class="grumpy-image" data-normal="example-image_original.jpeg"
+             data-srcset="img/4/example-image_320.png 320w, img/4/example-image_768.png 768w, img/4/example-image_1024.png 1024w">
+      </div>
+
+      <div class="grumpy-image-wrapper">
+        <img class="grumpy-image" data-normal="example-image_original.jpeg"
+             data-srcset="img/5/example-image_320.png 320w, img/5/example-image_768.png 768w, img/5/example-image_1024.png 1024w">
+      </div>
+
+      <div class="grumpy-image-wrapper">
+        <img class="grumpy-image" data-normal="example-image_original.jpeg"
+             data-srcset="img/6/example-image_320.png 320w, img/6/example-image_768.png 768w, img/6/example-image_1024.png 1024w">
+      </div>
+
+      <div class="grumpy-image-wrapper">
+        <img class="grumpy-image" data-normal="example-image_original.jpeg"
+             data-srcset="img/7/example-image_320.png 320w, img/7/example-image_768.png 768w, img/7/example-image_1024.png 1024w">
+      </div>
+
+    </div>
+
+    <script src="../../dist/layzr.js"></script>
+    <script>
+      console.log('Module assigned to window.Layzr. Logged below:')
+      console.log(Layzr)
+
+      const instance = Layzr({
+        scrollContainer: document.getElementsByClassName('scrolled')[0]
+      });
+
+      // start it up, when the DOM is ready
+
+      document.addEventListener('DOMContentLoaded', event => {
+        instance
+                .update()           // track initial elements
+                .check()            // check initial elements
+                .handlers(true)     // bind scroll and resize handlers
+      });
+
+    </script>
+  </body>
+</html>

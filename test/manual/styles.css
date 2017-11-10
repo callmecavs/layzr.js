@@ -1,0 +1,25 @@
+.scrolled {
+    display: inline-block;
+    max-height: 500px;
+    width: 100%;
+    overflow: scroll;
+    border: 1px solid red;
+}
+
+.grumpy-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 65.36%;
+    background-color: #F7F7F7;
+    border: 2px solid red;
+    margin-bottom: 20px;
+}
+
+.grumpy-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
